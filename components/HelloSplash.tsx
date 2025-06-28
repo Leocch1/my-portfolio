@@ -1,0 +1,87 @@
+"use client";
+import { useEffect, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+
+const greetings = [
+  "Hello",
+  "Kamusta",
+  "Hola",
+  "Bonjour",
+  "Ciao",
+  "Hallo",
+  "こんにちは",
+  "안녕하세요",
+  "नमस्ते",
+];
+
+export default function HelloSplash({ onFinish }: { onFinish: () => void }) {
+  const [index, setIndex] = useState(0);
+  const [isExiting, setIsExiting] = useState(false);
+  const [showSplash, setShowSplash] = useState(true);
+
+  useEffect(() => {
+    const firstTimeout = setTimeout(() => {
+      setIndex(1);
+
+      const interval = setInterval(() => {
+        setIndex((prev) => {
+          const nextIndex = prev + 1;
+          if (nextIndex >= greetings.length) {
+            setTimeout(() => {
+              setIsExiting(true);
+              setTimeout(() => {
+                setShowSplash(false);
+                onFinish();
+              }, 1000);
+            }, 600);
+            return prev;
+          }
+          return nextIndex;
+        });
+      }, 200);
+
+      return () => clearInterval(interval);
+    }, 1500);
+
+    return () => clearTimeout(firstTimeout);
+  }, [onFinish]);
+
+  return (
+    <AnimatePresence>
+      {showSplash && (
+        <motion.div
+          key="splash"
+          className="fixed inset-0 z-50"
+          initial={{ opacity: 1, y: 0 }}
+          animate={isExiting ? { y: "-100vh", opacity: 0 } : { y: 0, opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 1, ease: "easeInOut" }}
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            minHeight: "100vh",
+            minWidth: "100vw",
+            backgroundColor: "#1a1a1a",
+          }}
+        >
+          <div className="w-full flex flex-col items-center justify-center text-center px-6">
+            <motion.h1
+              key={index}
+              className="text-[4rem] md:text-[6rem] lg:text-[8rem] xl:text-[10rem] font-light text-center leading-none"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.4 }}
+              style={{
+                color: "#a3a3a3",
+              }}
+            >
+              • {greetings[index]}
+            </motion.h1>
+          </div>
+        </motion.div>
+      )}
+    </AnimatePresence>
+  );
+}

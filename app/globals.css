@@ -1,11 +1,21 @@
 @import "tailwindcss/preflight";
 @import "tailwindcss/utilities";
 
-/* Optional: custom variables */
+/* MOST IMPORTANT */
+html,
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  display: block;
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
-  --font-sans: Arial, Helvetica, sans-serif;
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
 }
 
 @media (prefers-color-scheme: dark) {
