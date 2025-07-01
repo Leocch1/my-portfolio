@@ -9,9 +9,9 @@ const greetings = [
   "Bonjour",
   "Ciao",
   "Hallo",
-  "こんにちは",
   "안녕하세요",
   "नमस्ते",
+  "こんにちは",
 ];
 
 export default function HelloSplash({ onFinish }: { onFinish: () => void }) {
