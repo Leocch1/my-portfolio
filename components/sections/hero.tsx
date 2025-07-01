@@ -3,20 +3,24 @@ import { MotionDiv } from '@/components/motion';
 
 export default function HeroSection() {
   return (
-    <section className="flex flex-grow items-center justify-center bg-background text-foreground p-4 overflow-hidden">
+    <section className="flex flex-grow items-center justify-center bg-black text-[#f3e7d5] p-4 pb-24 overflow-hidden">
       <div className="w-full max-w-6xl mx-auto">
-        <div className="relative text-center">
+        <div className="relative text-center pt-24">
           <MotionDiv 
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="absolute -top-20 left-1/2 -translate-x-1/2 flex items-center gap-4 z-10"
+            className="flex items-center gap-4 justify-center mb-4 z-10"
           >
-            <Avatar className="h-10 w-10 md:h-12 md:w-12 border-2 border-border">
-              <AvatarImage src="https://placehold.co/100x100.png" alt="Leo" data-ai-hint="avatar memoji" />
+            <Avatar className="h-[70px] w-[70px] border-2 border-border overflow-hidden bg-white">
+              <AvatarImage
+                src="genmoji (1).png"
+                alt="Leo"
+                className="object-contain"
+              />
               <AvatarFallback>L</AvatarFallback>
             </Avatar>
-            <div className="text-sm md:text-base border border-border rounded-full px-4 py-2 whitespace-nowrap bg-background">
+            <div className="h-[70px] flex items-center border border-border rounded-full px-4 whitespace-nowrap bg-black text-lg font-medium text-[#f3e7d5]">
               Hello, I'm Leo
             </div>
           </MotionDiv>
@@ -30,7 +34,6 @@ export default function HeroSection() {
             >
               <span className="text-primary">DIGITAL</span>
             </MotionDiv>
-            
             <MotionDiv 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -38,7 +41,6 @@ export default function HeroSection() {
             >
               <span className="text-secondary">EXPERIENCE</span>
             </MotionDiv>
-            
             <MotionDiv 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -47,7 +49,6 @@ export default function HeroSection() {
             >
               <span className="text-foreground/90">DESIGNER</span>
             </MotionDiv>
-            
             <MotionDiv 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -59,15 +60,15 @@ export default function HeroSection() {
           </h1>
 
           <MotionDiv
-            className="mt-16 md:mt-24 max-w-xl mx-auto text-lg md:text-xl text-muted-foreground leading-relaxed"
+            className="mt-4 md:mt-8 max-w-xl mx-auto text-xl md:text-2xl text-muted-foreground leading-relaxed font-bold"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.7 }}
           >
             I create a digital experience that borders on{' '}
-            <span className="text-secondary font-medium">efficiency</span>,{' '}
-            <span className="text-foreground/90 font-medium">aesthetics</span> and{' '}
-            <span className="text-accent font-medium">functionality</span>.
+            <span className="text-secondary font-bold">efficiency</span>,{' '}
+            <span className="text-foreground/90 font-bold">aesthetics</span> and{' '}
+            <span className="text-accent font-bold">functionality</span>.
           </MotionDiv>
         </div>
       </div>
