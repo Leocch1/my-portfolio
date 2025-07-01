@@ -1,27 +1,21 @@
-"use client";
+import Header from '@/components/layout/header';
+import Footer from '@/components/layout/footer';
+import HeroSection from '@/components/sections/hero';
+import AboutSection from '@/components/sections/about';
+import ProjectsSection from '@/components/sections/projects';
+import TechStackSection from '@/components/sections/tech-stack';
 
-import { useState } from "react";
-import HelloSplash from "@/components/HelloSplash";
-import { Header } from "@/components/Header";
-
-export default function HomePage() {
-  const [showSplash, setShowSplash] = useState(true);
-
+export default function Home() {
   return (
-    <>
-      {showSplash ? (
-        <HelloSplash onFinish={() => setShowSplash(false)} />
-      ) : (
-        <>
-          <Header />
-          <main className="min-h-screen flex flex-col justify-center items-center text-center p-6 bg-white dark:bg-black">
-            <h1 className="text-4xl md:text-6xl font-bold">Leo Louise Jimenez</h1>
-            <p className="text-gray-600 dark:text-gray-300 mt-4 max-w-xl">
-              Welcome to my personal portfolio. I build modern web apps using Next.js, TypeScript, Tailwind, and Framer Motion.
-            </p>
-          </main>
-        </>
-      )}
-    </>
+    <div className="flex flex-col min-h-screen bg-background">
+      <Header />
+      <main className="flex-grow">
+        <HeroSection />
+        <AboutSection />
+        <ProjectsSection />
+        <TechStackSection />
+      </main>
+      <Footer />
+    </div>
   );
 }
