@@ -62,19 +62,19 @@ export default function HelloSplash({ onFinish }: { onFinish: () => void }) {
             justifyContent: "center",
             minHeight: "100vh",
             minWidth: "100vw",
-            backgroundColor: "#1a1a1a",
+            backgroundColor: "#101210", // changed background color
           }}
         >
           <div className="w-full flex flex-col items-center justify-center text-center px-6">
             <motion.h1
               key={index}
-              className="text-[4rem] md:text-[6rem] lg:text-[8rem] xl:text-[10rem] font-light text-center leading-none"
+              className="text-[2.5rem] md:text-[4rem] lg:text-[5rem] xl:text-[6rem] font-light text-center leading-none"
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
               transition={{ duration: 0.4 }}
               style={{
-                color: "#a3a3a3",
+                color: "#f3e7d5", // changed text color
               }}
             >
               • {greetings[index]}
