@@ -18,7 +18,7 @@ import { sendEmail } from '@/ai/flows/send-email-flow';
 const socialLinks = [
   { name: 'Twitter', href: 'https://x.com/leolouise261' },
   { name: 'LinkedIn', href: 'https://www.linkedin.com/in/leo-louise-jimenez-2169a3369/' },
-  { name: 'Dribble', href: 'https://dribbble.com/leo-louise-jimenez' },
+  { name: 'Dribbble', href: 'https://dribbble.com/leo-louise-jimenez' },
 ];
 
 const formSchema = z.object({
