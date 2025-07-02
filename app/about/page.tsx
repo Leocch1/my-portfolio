@@ -48,6 +48,51 @@ const services = [
     },
 ];
 
+const certifications = [
+    {
+        title: 'Responsive Web Design',
+        issuer: 'freeCodeCamp',
+        year: '2025',
+        image: 'cert3.png',
+        hint: 'certificate web design'
+    },
+    {
+        title: 'JavaScript Algorithms and Data Structures',
+        issuer: 'freeCodeCamp',
+        year: '2025',
+        image: 'cert2.png',
+        hint: 'certificate javascript'
+    },
+    {
+        title: 'Front-End Development Libraries',
+        issuer: 'freeCodeCamp',
+        year: '2025',
+        image: 'cert1.png',
+        hint: 'certificate meta front-end'
+    },
+    {
+        title: 'JavaScript (Basic)',
+        issuer: 'HackerRank',
+        year: '2025',
+        image: 'cert4.png',
+        hint: 'certificate javascript'
+    },
+    {
+        title: 'SQL (Basic)',
+        issuer: 'HackerRank',
+        year: '2025',
+        image: 'cert5.png',
+        hint: 'certificate sql'
+    },
+    {
+        title: 'CSS (Basic)',
+        issuer: 'HackerRank',
+        year: '2025',
+        image: 'cert6.png',
+        hint: 'certificate css'
+    },
+];
+
 export default function AboutPage() {
   const [position, setPosition] = useState({ x: 0, y: 0 });
 
@@ -95,17 +140,19 @@ export default function AboutPage() {
           </div>
           
           <MotionDiv
-            className="relative w-full aspect-[4/5] rounded-2xl overflow-hidden hidden lg:block"
+            className="relative w-[600px] h-[700px] rounded-2xl overflow-hidden hidden lg:block"
             initial={{ opacity: 0, scale: 0.9, x: 50 }}
             animate={{ opacity: 1, scale: 1, x: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
           >
             <Image
-              src="https://placehold.co/500x625.png"
+              src="/leo.jpg"
               alt="A portrait of Leo"
-              fill
-              className="object-cover"
+              width={600}
+              height={700}
+              className="object-cover w-full h-full"
               data-ai-hint="portrait professional"
+              priority
             />
           </MotionDiv>
         </div>
@@ -145,6 +192,47 @@ export default function AboutPage() {
             className="mt-24"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+        >
+            <hr className="mb-12" style={{ borderColor: "#bfa27a" }} />
+            <div className="text-center mb-16">
+                <h2 className="text-4xl font-bold tracking-tight">Online Certifications</h2>
+                <p className="mt-2 text-lg text-muted-foreground">My commitment to continuous learning.</p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {certifications.map((cert, index) => (
+                    <MotionDiv
+                        key={index}
+                        className="bg-card/30 rounded-lg border border-border/20 p-4 flex flex-col items-center text-center group"
+                        initial={{ opacity: 0, y: 50 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, amount: 0.2 }}
+                        transition={{ duration: 0.5, delay: index * 0.1 }}
+                    >
+                        <div className="relative w-full aspect-[16/9] rounded-md overflow-hidden bg-muted mb-4">
+                            <Image
+                              src={cert.image.startsWith('http') ? cert.image : `/${cert.image}`}
+                              alt={cert.title}
+                              fill
+                              className="object-cover group-hover:scale-105 transition-transform duration-300"
+                              data-ai-hint={cert.hint}
+                            />
+                        </div>
+                        <div className="flex-grow">
+                            <h3 className="text-xl font-bold">{cert.title}</h3>
+                            <p className="text-md text-muted-foreground">{cert.issuer}</p>
+                        </div>
+                        <p className="text-sm text-muted-foreground mt-2">{cert.year}</p>
+                    </MotionDiv>
+                ))}
+            </div>
+        </MotionDiv>
+
+        <MotionDiv
+            className="mt-24"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
             viewport={{ once: true, amount: 0.5 }}
             transition={{ duration: 0.5, delay: 0.2 }}
         >
@@ -167,7 +255,6 @@ export default function AboutPage() {
             </div>
         </MotionDiv>
       </main>
-      <div className="fixed top-0 right-0 h-full w-2 bg-primary z-10 hidden sm:block" />
       <Footer />
     </div>
   );
