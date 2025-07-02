@@ -29,7 +29,7 @@ const projectsData = [
 		year: '2024',
 		category: 'UI/UX Design & Development',
 		tech: 'React, JavaScript XML, Tailwind CSS, Django',
-    description: 'A simple checklist application for students to manage their subjects and grades',
+    description: 'An online store for selling sweets and pastries.',
 		link: 'https://github.com/Leocch1/daily-sweets',
 	},
 	{
