@@ -1,97 +1,201 @@
-import Image from 'next/image';
+"use client";
+
+import { useState, useEffect, type MouseEvent } from 'react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
-import { MotionDiv, MotionSection } from '@/components/motion';
+import { MotionDiv, MotionSection, MotionButton } from '@/components/motion';
+import { Briefcase, ArrowRight } from 'lucide-react';
+import { cn } from '@/lib/utils';
 
-const projects = [
+const projectsData = [
+	{
+		title: 'Tote&Tale',
+		year: '2025',
+		category: 'UI/UX Design & Development',
+		tech: 'Next.js, Typescript, Sanity, Clerk, Stripe',
+		description: 'A modern e-commerce platform for bag enthusiast.',
+		link: 'https://totentale.vercel.app/',
+	},
+	{
+		title: 'CvSU Enrollment System',
+		year: '2024',
+		category: 'UI/UX Design & Development',
+		tech: 'Laravel, PHP, MySQL, Bootstrap',
+    description: 'Enrollment System for Cavite State University.',
+		link: 'https://github.com/Leocch1/enrollment-system',
+	},
   {
-    title: 'Project Alpha',
-    description: 'An innovative e-commerce platform with a focus on user experience and performance.',
-    image: 'https://placehold.co/600x400.png',
-    hint: 'software project',
-    tags: ['React', 'Next.js', 'Stripe'],
-    link: '/projects#alpha',
-  },
-  {
-    title: 'Project Beta',
-    description: 'A data visualization dashboard for analyzing complex datasets with interactive charts.',
-    image: 'https://placehold.co/600x400.png',
-    hint: 'data dashboard',
-    tags: ['Vue.js', 'D3.js', 'Node.js'],
-    link: '/projects#beta',
-  },
-  {
-    title: 'Project Gamma',
-    description: 'A social networking app designed to connect like-minded individuals in local communities.',
-    image: 'https://placehold.co/600x400.png',
-    hint: 'mobile app',
-    tags: ['Flutter', 'Firebase', 'GraphQL'],
-    link: '/projects#gamma',
-  },
+		title: 'Daily Sweets',
+		year: '2024',
+		category: 'UI/UX Design & Development',
+		tech: 'React, JavaScript XML, Tailwind CSS, Django',
+    description: 'A simple checklist application for students to manage their subjects and grades',
+		link: 'https://github.com/Leocch1/daily-sweets',
+	},
+	{
+		title: 'Leocchi Portfolio',
+		year: '2023',
+		category: 'UI/UX Design & Development',
+		tech: 'Next.js, JavaScript XML, Tailwind CSS, Shadcn UI, Framer Motion',
+    description: 'My personal portfolio showcasing my skills and projects.',
+		link: 'https://leo-jimenez.vercel.app/',
+	},
+	{
+		title: 'Student Checklist',
+		year: '2023',
+		category: 'UI/UX Design & Development',
+		tech: 'PHP, MySQL',
+    description: 'A simple checklist application for students to manage their subjects and grades',
+		link: 'https://github.com/Leolouise26/MyChecklist',
+	},
 ];
 
-const cardVariants = {
-  hidden: { y: 50, opacity: 0 },
-  visible: { y: 0, opacity: 1, transition: { duration: 0.5 } },
-};
+const colorStyles = [
+	{ bg: 'bg-primary', text: 'text-primary-foreground' }, // Purple
+	{ bg: 'bg-yellow-400', text: 'text-yellow-900' }, // Yellow
+	{ bg: 'bg-sky-400', text: 'text-sky-900' }, // Light Blue
+];
+
+const CustomCursorIcon = ({ className }: { className?: string }) => (
+	<svg
+		width="24"
+		height="36"
+		viewBox="0 0 24 36"
+		fill="none"
+		xmlns="http://www.w3.org/2000/svg"
+		className={cn(className)}
+		style={{ width: '24px', height: '36px' }}
+	>
+		<path d="M0.339844 0.99983L23.3398 15.9998L11.8398 18.9998L9.33984 35.4998L0.339844 0.99983Z" fill="#0ea5e9" />
+	</svg>
+);
 
 export default function ProjectsSection() {
-  return (
-    <MotionSection 
-      id="projects" 
-      className="py-20 md:py-28 bg-black"
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      viewport={{ once: true, amount: 0.2 }}
-      transition={{ duration: 0.5 }}
-    >
-      <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold font-headline text-primary">My Projects</h2>
-          <p className="text-lg text-muted-foreground mt-2">A selection of my recent work.</p>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, index) => (
-            <MotionDiv
-              key={project.title}
-              variants={cardVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.3 }}
-              custom={index}
-            >
-              <Card className="flex flex-col h-full overflow-hidden shadow-lg transition-transform duration-300 hover:scale-105 hover:shadow-2xl">
-                <CardHeader className="p-0">
-                  <div className="relative h-48 w-full">
-                    <Image src={project.image} alt={project.title} fill style={{ objectFit: 'cover' }} data-ai-hint={project.hint} />
-                  </div>
-                </CardHeader>
-                <CardContent className="p-6 flex-grow">
-                  <CardTitle className="font-headline text-xl mb-2">{project.title}</CardTitle>
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {project.tags.map((tag) => (
-                       <Badge key={tag} variant="secondary">{tag}</Badge>
-                    ))}
-                  </div>
-                  <CardDescription>{project.description}</CardDescription>
-                </CardContent>
-                <CardFooter className="p-6 pt-0">
-                  <Link href={project.link} passHref>
-                    <Button variant="outline" className="w-full">View Details</Button>
-                  </Link>
-                </CardFooter>
-              </Card>
-            </MotionDiv>
-          ))}
-        </div>
-        <div className="text-center mt-12">
-          <Link href="/projects" passHref>
-            <Button size="lg">See All Projects</Button>
-          </Link>
-        </div>
-      </div>
-    </MotionSection>
-  );
+	const [hoveredProject, setHoveredProject] = useState<(typeof projectsData)[0] | null>(null);
+	const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+	const [isHovering, setIsHovering] = useState(false);
+	const [cursorStyle, setCursorStyle] = useState(colorStyles[0]);
+	const [buttonPosition, setButtonPosition] = useState({ x: 0, y: 0 });
+
+	useEffect(() => {
+		const handleMouseMove = (event: globalThis.MouseEvent) => {
+			setMousePosition({ x: event.clientX, y: event.clientY });
+		};
+
+		window.addEventListener('mousemove', handleMouseMove);
+
+		return () => {
+			window.removeEventListener('mousemove', handleMouseMove);
+		};
+	}, []);
+
+	const handleMouseEnter = (project: (typeof projectsData)[0]) => {
+		setHoveredProject(project);
+		setIsHovering(true);
+		const randomStyle = colorStyles[Math.floor(Math.random() * colorStyles.length)];
+		setCursorStyle(randomStyle);
+	};
+
+	const handleMouseLeave = () => {
+		setHoveredProject(null);
+		setIsHovering(false);
+	};
+
+	const handleButtonMouseMove = (e: MouseEvent<HTMLButtonElement>) => {
+		const rect = e.currentTarget.getBoundingClientRect();
+		const x = e.clientX - rect.left - rect.width / 2;
+		const y = e.clientY - rect.top - rect.height / 2;
+		setButtonPosition({ x: x * 0.1, y: y * 0.1 });
+	};
+
+	const handleButtonMouseLeave = () => {
+		setButtonPosition({ x: 0, y: 0 });
+	};
+
+	return (
+		<MotionSection
+			id="projects"
+			className={cn(
+				'py-20 md:py-28 bg-[#101210] relative',
+				isHovering && 'cursor-none'
+			)}
+			initial={{ opacity: 0 }}
+			whileInView={{ opacity: 1 }}
+			viewport={{ once: true, amount: 0.2 }}
+			transition={{ duration: 0.5 }}
+		>
+			<div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+				<div className="mb-12 mt-2"> {/* Move title up a little with mt-2 */}
+					<h2 className="text-3xl md:text-4xl font-bold font-headline text-primary mb-2 lg:-ml-16">My Projects</h2>
+					<div className="relative flex items-center -mx-12 sm:-mx-16 lg:-mx-24">
+						<hr className="w-full border-t border-[#bfa27a]" /> {/* Line color matches about section */}
+						<div className="absolute right-8 top-1/2 -translate-y-1/2">
+							<Button variant="ghost" size="icon" className="w-16 h-16 rounded-full bg-card border border-[#bfa27a]">
+								<Briefcase className="h-6 w-6 text-foreground" />
+							</Button>
+						</div>
+					</div>
+				</div>
+
+				<div>
+					{projectsData.map((project) => (
+						<Link
+							key={project.title}
+							href={project.link}
+							className="group block"
+							onMouseEnter={() => handleMouseEnter(project)}
+							onMouseLeave={handleMouseLeave}
+							target={project.link.startsWith('http') ? "_blank" : undefined} // Open external links in new tab
+							rel={project.link.startsWith('http') ? "noopener noreferrer" : undefined} // Security best practice
+						>
+							<div className="flex justify-between items-center py-12 border-b border-[#bfa27a] transition-colors duration-300 group-hover:bg-card/10 -mx-12 sm:-mx-16 lg:-mx-24 px-12 sm:px-16 lg:px-24">
+								<div>
+									<h3 className="text-2xl md:text-4xl font-semibold text-foreground/90 group-hover:text-primary transition-all duration-300 ease-in-out group-hover:scale-105 group-hover:translate-x-[100px]">{project.title}</h3>
+									<p className="text-muted-foreground mt-1 transition-transform duration-300 group-hover:translate-x-[100px]">{project.year}</p>
+								</div>
+								<div className="text-right hidden md:block">
+									<p className="text-lg text-foreground/90 transition-transform duration-300 group-hover:-translate-x-[100px]">{project.category}</p>
+									<p className="text-sm text-muted-foreground transition-transform duration-300 group-hover:-translate-x-[100px]">{project.tech}</p>
+								</div>
+							</div>
+						</Link>
+					))}
+				</div>
+				
+				<div className="text-center mt-12">
+					<Link href="/projects" passHref>
+						<MotionButton
+							className="btn-fill-animation rounded-full px-8 py-6 text-lg font-medium"
+							onMouseMove={handleButtonMouseMove}
+							onMouseLeave={handleButtonMouseLeave}
+							animate={{ x: buttonPosition.x, y: buttonPosition.y }}
+							transition={{ type: 'spring', stiffness: 400, damping: 10, mass: 0.5 }}
+						>
+							<span className="btn-content">
+								Load More <ArrowRight className="ml-2 h-5 w-5" />
+							</span>
+						</MotionButton>
+					</Link>
+				</div>
+			</div>
+
+			<MotionDiv
+				className="fixed top-0 left-0 pointer-events-none z-50 hidden lg:block"
+				animate={{
+					x: mousePosition.x,
+					y: mousePosition.y,
+					opacity: isHovering ? 1 : 0,
+				}}
+				transition={{ type: "tween", ease: "backOut", duration: 0.2 }}
+			>
+				<CustomCursorIcon className="absolute drop-shadow-[0_2px_4px_rgba(14,165,233,0.6)]" />
+				{hoveredProject && (
+					<div className={`absolute top-10 left-10 min-w-[250px] p-3 ${cursorStyle.bg} ${cursorStyle.text} rounded-lg shadow-lg`}>
+						<h4 className="font-bold text-base">{hoveredProject.title}</h4>
+						<p className="text-sm opacity-90">{hoveredProject.description}</p>
+					</div>
+				)}
+			</MotionDiv>
+		</MotionSection>
+	);
 }
