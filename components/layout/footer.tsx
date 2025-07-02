@@ -135,7 +135,6 @@ export default function Footer() {
           </div>
         </div>
       </div>
-      <div className="absolute top-0 right-0 h-full w-1 bg-primary" />
     </MotionFooter>
   );
 }
