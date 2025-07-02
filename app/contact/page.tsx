@@ -16,10 +16,9 @@ import { useToast } from '@/hooks/use-toast';
 import { sendEmail } from '@/ai/flows/send-email-flow';
 
 const socialLinks = [
-  { name: 'Twitter', href: '#' },
-  { name: 'LinkedIn', href: '#' },
-  { name: 'Behance', href: '#' },
-  { name: 'Dribbble', href: '#' },
+  { name: 'Twitter', href: 'https://x.com/leolouise261' },
+  { name: 'LinkedIn', href: 'https://www.linkedin.com/in/leo-louise-jimenez-2169a3369/' },
+  { name: 'Dribble', href: 'https://dribbble.com/leo-louise-jimenez' },
 ];
 
 const formSchema = z.object({
@@ -94,7 +93,7 @@ export default function ContactPage() {
              <div className="lg:sticky lg:top-28">
                 <div className="relative w-24 h-24 rounded-full overflow-hidden shadow-lg mx-auto lg:mx-0 mb-12 lg:mb-0">
                   <Image
-                    src="https://placehold.co/100x100.png"
+                    src="/leop.jpg"
                     alt="Your Picture"
                     fill
                     className="object-cover"
