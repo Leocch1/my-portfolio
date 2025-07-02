@@ -112,7 +112,7 @@ export default function AboutSection() {
 				</div>
 
 				{/* Main Content Row */}
-				<div className="px-4 sm:px-8 md:px-12 lg:px-40 mt-32">
+				<div className="px-4 sm:px-8 md:px-12 lg:px-40 mt-16">
 					<div className="relative">
 						{/* Top: Heading and Description */}
 						<div className="flex flex-col md:flex-row md:items-start md:justify-between md:gap-8">
@@ -122,11 +122,11 @@ export default function AboutSection() {
 								on promises and continuously pioneering<br />
 								innovation.
 							</h2>
-							<div className="text-xs md:text-sm text-[#f3e7d5] max-w-xs text-left mb-8 md:mb-0 px-2 md:px-0" style={{ color: "#f3e7d5", opacity: 0.85 }}>
-                My blend of design, coding, and interaction<br />
-                expertise distinguishes me within the tech<br />
-                industry.
-              </div>
+							<div className="text-sm md:text-base text-[#f3e7d5] max-w-xs md:text-right mb-8 md:mb-0 px-2 md:px-0" style={{ color: "#f3e7d5", opacity: 0.85 }}>
+								My blend of design, coding, and interaction<br />
+								expertise distinguishes me within the tech<br />
+								industry.
+							</div>
 						</div>
 						{/* Green Heading */}
 						<div className="text-green-400 text-2xl md:text-4xl font-bold my-8">
@@ -134,9 +134,9 @@ export default function AboutSection() {
 							Architecting Innovation
 						</div>
 						{/* Line with circle on the line at the right */}
-						<div className="relative flex items-center mb-8" style={{ minHeight: '5rem' }}>
+						<div className="relative flex items-center mb-8 min-h-20">
 							<hr className="w-full border-[#bfa27a]" />
-							<div className="absolute right-0 z-10 flex items-center" style={{ top: '50%', transform: 'translateY(-50%)' }}>
+							<div className="absolute right-8 top-1/2 -translate-y-1/2">
 								<div className="bg-[#f3e7d5] rounded-full w-20 h-20 flex items-center justify-center shadow-lg shrink-0">
 									<svg width="40" height="40" viewBox="0 0 24 24" fill="none">
 										<circle cx="12" cy="12" r="12" fill="none" />
