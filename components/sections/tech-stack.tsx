@@ -1,68 +1,108 @@
-import { Code, Server, Database, Wind, Component, Type, Flame, Move } from 'lucide-react';
-import { MotionDiv, MotionSection } from '@/components/motion';
+"use client"
 
-const techStack = [
-  { name: 'React', icon: <Component className="h-10 w-10 text-primary" /> },
-  { name: 'Next.js', icon: <Component className="h-10 w-10 text-primary" /> },
-  { name: 'TypeScript', icon: <Type className="h-10 w-10 text-primary" /> },
-  { name: 'Node.js', icon: <Server className="h-10 w-10 text-primary" /> },
-  { name: 'Tailwind CSS', icon: <Wind className="h-10 w-10 text-primary" /> },
-  { name: 'Firebase', icon: <Flame className="h-10 w-10 text-primary" /> },
-  { name: 'SQL & NoSQL', icon: <Database className="h-10 w-10 text-primary" /> },
-  { name: 'Framer Motion', icon: <Move className="h-10 w-10 text-primary" /> },
+import { MotionSection } from '@/components/motion';
+import { motion } from "framer-motion";
+
+// Add this to your _app.tsx or _document.tsx <Head> for global CSS if not already present:
+// <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+
+const technologies = [
+  { name: 'HTML5', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg' },
+  { name: 'CSS3', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg' },
+  { name: 'JavaScript', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg' },
+  { name: 'TypeScript', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg' },
+  { name: 'React', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg' },
+  { name: 'Next.js', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg' },
+  { name: 'TailwindCSS', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg' },
+  { name: 'Node.js', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg' },
+  { name: 'MongoDB', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original.svg' },
+  { name: 'MySQL', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg' },
+  { name: 'Python', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg' },
+  { name: 'Java', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg' },
+  { name: 'PHP', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg' },
+  { name: 'Laravel', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/laravel/laravel-original.svg' },
+  { name: 'Git', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg' },
+  { name: 'Figma', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg' },
+  { name: 'Vercel', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vercel/vercel-original.svg' },
+  // Add more as needed
 ];
 
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
+const animateScrollLeft = {
+animate: {
+    x: ['-50%', '0%'],
     transition: {
-      staggerChildren: 0.1,
-      delayChildren: 0.2,
+      repeat: Infinity,
+      repeatType: 'loop',
+      duration: 40,
+      ease: 'linear',
     },
   },
-};
-
-const itemVariants = {
-  hidden: { scale: 0.5, opacity: 0 },
-  visible: { scale: 1, opacity: 1 },
 };
 
 export default function TechStackSection() {
   return (
     <MotionSection 
       id="tech-stack" 
-      className="py-20 md:py-28 bg-black"
+      className="py-4 md:py-8 bg-[#101210] text-foreground" // further reduced vertical padding
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.5 }}
     >
-      <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold font-headline text-primary">Technologies I Use</h2>
-          <p className="text-lg text-muted-foreground mt-2">My favorite tools and technologies for building applications.</p>
+      <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
+        <div className="relative inline-block mb-4 mt-0">
+            <div className="absolute top-[-10px] left-1/2 -translate-x-1/2 w-20 h-0.5 bg-primary/50" />
+            <h2 className="text-3xl md:text-4xl font-bold tracking-widest uppercase text-primary">
+                My Tech Stack
+            </h2>
         </div>
-        <MotionDiv 
-          className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 gap-8 max-w-4xl mx-auto"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
+        <p className="mt-4 text-lg md:text-xl max-w-3xl mx-auto text-muted-foreground">
+          My expertise spans a diverse range of{' '}
+          <span className="text-secondary font-semibold">technologies</span>, enabling me to deliver
+          comprehensive and{' '}
+          <span className="text-accent font-semibold">cutting-edge solutions</span> across various
+          platforms.
+        </p>
+      </div>
+      <div
+        className="relative mt-8 w-full overflow-hidden"
+        style={{
+          maskImage: 'linear-gradient(to right, transparent, black 10%, black 90%, transparent)',
+        }}
+      >
+        <div className="flex w-max"
+          style={{ minWidth: '100%' }}
         >
-          {techStack.map((tech) => (
-            <MotionDiv
-              key={tech.name}
-              variants={itemVariants}
-              whileHover={{ y: -10, scale: 1.05 }}
-              transition={{ type: 'spring', stiffness: 300 }}
-              className="flex flex-col items-center justify-center p-6 bg-card rounded-lg shadow-md border border-transparent hover:border-accent"
+          <div className="flex w-max mx-8" style={{ minWidth: '100%' }}>
+            <motion.div
+              className="flex w-max px-8"
+              animate={{ x: ['-50%', '0%'] }}
+              transition={{
+                repeat: Infinity,
+                repeatType: 'loop',
+                duration: 8,
+                ease: 'linear',
+              }}
             >
-              {tech.icon}
-              <p className="mt-4 text-sm font-medium text-center">{tech.name}</p>
-            </MotionDiv>
-          ))}
-        </MotionDiv>
+              {[...technologies, ...technologies].map((tech, index) => (
+                <div
+                  key={`${tech.name}-${index}`}
+                  className="flex-shrink-0 w-32 h-32 flex flex-col items-center justify-center mx-1 group"
+                >
+                  <img
+                    src={tech.icon}
+                    alt={tech.name}
+                    className="h-20 w-20 mb-2 transition-all duration-300 group-hover:scale-110"
+                    loading="lazy"
+                  />
+                  <div className="text-foreground/70 group-hover:text-foreground text-base font-semibold">
+                    {tech.name}
+                  </div>
+                </div>
+              ))}
+            </motion.div>
+          </div>
+        </div>
       </div>
     </MotionSection>
   );
