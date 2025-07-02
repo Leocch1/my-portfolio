@@ -33,14 +33,14 @@ export default function Header() {
 
   return (
     <header
-      className="w-full border-b bg-black border-[#f3e7d5]/60 backdrop-blur supports-[backdrop-filter]:bg-black"
+      className="w-full border-b bg-[#101210] border-[#f3e7d5]/60 backdrop-blur supports-[backdrop-filter]:bg-[#101210]"
     >
       <div className="relative flex h-20 w-full items-center px-4 sm:px-6 lg:px-8 pt-2">
         {/* Brand Button */}
         <div className="flex-shrink-0">
           <Link
             href="/"
-            className="rounded-full border border-[#f3e7d5]/60 px-8 py-3 text-base font-semibold text-[#f3e7d5] flex items-center gap-3 bg-black"
+            className="rounded-full border border-[#f3e7d5]/60 px-8 py-3 text-base font-semibold text-[#f3e7d5] flex items-center gap-3 bg-[#101210]"
           >
             <span className="h-5 w-5 rounded-full bg-[#f3e7d5]" />
             Leocchi
@@ -49,7 +49,7 @@ export default function Header() {
 
         {/* Center NavLinks */}
         <MotionNav
-          className="hidden md:flex items-center space-x-6 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border border-[#f3e7d5]/60 px-8 py-3 bg-black"
+          className="hidden md:flex items-center space-x-6 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border border-[#f3e7d5]/60 px-8 py-3 bg-[#101210]"
           initial="hidden"
           animate="visible"
           variants={{ visible: { transition: { staggerChildren: 0.1 } } }}
@@ -69,7 +69,7 @@ export default function Header() {
         {/* Contact Me Button */}
         <div className="hidden md:flex items-center ml-auto">
           <Link href="/contact" passHref>
-            <div className="rounded-full border border-[#f3e7d5]/60 px-8 py-3 text-base font-medium flex items-center gap-3 text-[#f3e7d5] hover:text-white hover:border-white bg-black">
+            <div className="rounded-full border border-[#f3e7d5]/60 px-8 py-3 text-base font-medium flex items-center gap-3 text-[#f3e7d5] hover:text-white hover:border-white bg-[#101210]">
               <Mail className="h-5 w-5" />
               Contact Me
             </div>
@@ -86,7 +86,7 @@ export default function Header() {
 
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <div className="md:hidden bg-black border-t border-[#f3e7d5]/20">
+        <div className="md:hidden bg-[#101210] border-t border-[#f3e7d5]/20">
           <div className="px-4 pt-4 pb-3 space-y-1">
             {navLinks.map((link) => (
               <Link
@@ -102,7 +102,7 @@ export default function Header() {
             <Link href="/contact" passHref>
               <div
                 onClick={() => setIsMenuOpen(false)}
-                className="w-full mt-2 text-base flex items-center justify-center gap-2 rounded-full border border-[#f3e7d5]/60 px-8 py-3 text-[#f3e7d5] bg-black hover:bg-[#bfa27a]/10"
+                className="w-full mt-2 text-base flex items-center justify-center gap-2 rounded-full border border-[#f3e7d5]/60 px-8 py-3 text-[#f3e7d5] bg-[#101210] hover:bg-[#bfa27a]/10"
               >
                 <Mail className="h-5 w-5" />
                 Contact Me

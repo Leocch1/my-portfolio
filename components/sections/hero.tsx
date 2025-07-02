@@ -3,7 +3,7 @@ import { MotionDiv } from '@/components/motion';
 
 export default function HeroSection() {
   return (
-    <section className="flex flex-grow items-center justify-center bg-black text-[#f3e7d5] p-4 pb-24 overflow-hidden">
+    <section className="flex flex-grow items-center justify-center bg-[#101210] text-[#f3e7d5] p-4 pb-24 overflow-hidden">
       <div className="w-full max-w-6xl mx-auto">
         <div className="relative text-center pt-24">
           <MotionDiv 
@@ -20,7 +20,7 @@ export default function HeroSection() {
               />
               <AvatarFallback>L</AvatarFallback>
             </Avatar>
-            <div className="h-[70px] flex items-center border border-border rounded-full px-4 whitespace-nowrap bg-black text-lg font-medium text-[#f3e7d5]">
+            <div className="h-[70px] flex items-center border border-border rounded-full px-4 whitespace-nowrap bg-[#101210] text-lg font-medium text-[#f3e7d5]">
               Hello, I'm Leo
             </div>
           </MotionDiv>

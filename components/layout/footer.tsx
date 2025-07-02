@@ -34,7 +34,7 @@ export default function Footer() {
 
   return (
     <MotionFooter 
-      className="bg-black text-foreground/80 pt-12 pb-8 relative" // removed border-t and border color
+      className="bg-[#101210] text-foreground/80 pt-12 pb-8 relative" // removed border-t and border color
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       viewport={{ once: true, amount: 0.1 }}
