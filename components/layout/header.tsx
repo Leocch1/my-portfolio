@@ -32,11 +32,8 @@ export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <MotionHeader
-      initial={{ y: -100, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.5 }}
-      className="sticky top-0 z-50 w-full border-b bg-black border-[#f3e7d5]/60 backdrop-blur supports-[backdrop-filter]:bg-black"
+    <header
+      className="w-full border-b bg-black border-[#f3e7d5]/60 backdrop-blur supports-[backdrop-filter]:bg-black"
     >
       <div className="relative flex h-20 w-full items-center px-4 sm:px-6 lg:px-8 pt-2">
         {/* Brand Button */}
@@ -87,8 +84,6 @@ export default function Header() {
         </div>
       </div>
 
-      {/* Removed separator line here */}
-
       {/* Mobile Menu */}
       {isMenuOpen && (
         <div className="md:hidden bg-black border-t border-[#f3e7d5]/20">
@@ -116,6 +111,6 @@ export default function Header() {
           </div>
         </div>
       )}
-    </MotionHeader>
+    </header>
   );
 }
