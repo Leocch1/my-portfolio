@@ -51,6 +51,20 @@ const DribbbleIcon = () => (
 const DiscordIcon = () => (
     <svg width="28" height="28" fill="none" viewBox="0 0 24 24"><rect x="2" y="6" width="20" height="12" rx="6" stroke="#111310" strokeWidth="2"/><circle cx="8.5" cy="12" r="1.5" fill="#111310"/><circle cx="15.5" cy="12" r="1.5" fill="#111310"/></svg>
 )
+const FacebookIcon = () => (
+    <svg width="28" height="28" fill="none" viewBox="0 0 24 24">
+        <rect width="24" height="24" rx="6" fill="#111310" fillOpacity="0.05"/>
+        <path d="M15.5 8.5H14V7.5C14 7.22 14.22 7 14.5 7H15.5V5H14.5C13.12 5 12 6.12 12 7.5V8.5H11V10.5H12V19H14V10.5H15.5L16 8.5H14Z" fill="#111310"/>
+    </svg>
+);
+const InstagramIcon = () => (
+    <svg width="28" height="28" fill="none" viewBox="0 0 24 24">
+        <rect width="24" height="24" rx="6" fill="#111310" fillOpacity="0.05"/>
+        <rect x="4" y="4" width="16" height="16" rx="5" stroke="#111310" strokeWidth="2"/>
+        <circle cx="12" cy="12" r="4" stroke="#111310" strokeWidth="2"/>
+        <circle cx="17" cy="7" r="1" fill="#111310"/>
+    </svg>
+);
 
 export default function AboutSection() {
     const [position, setPosition] = useState({ x: 0, y: 0 });
@@ -86,12 +100,12 @@ export default function AboutSection() {
 					{/* Center: Socials */}
 					<div className="justify-self-center">
 						<div className="social-icons-container flex gap-2 bg-transparent px-3 py-1 rounded-full border border-[#bfa27a]/40 w-fit shadow transition-all duration-300 ease-in-out" style={{ background: "#181a17" }}>
-							<a href="https://x.com/" target="_blank" rel="noopener noreferrer" className="social-icon w-8 h-8 md:w-12 md:h-12"><XIcon/></a>
-							<a href="https://behance.net/" target="_blank" rel="noopener noreferrer" className="social-icon w-12 h-12 hidden md:flex"><BehanceIcon /></a>
-							<a href="https://github.com/" target="_blank" rel="noopener noreferrer" className="social-icon w-8 h-8 md:w-12 md:h-12"><GithubIcon /></a>
-							<a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer" className="social-icon w-8 h-8 md:w-12 md:h-12"><LinkedinIcon /></a>
-							<a href="https://dribbble.com/" target="_blank" rel="noopener noreferrer" className="social-icon w-12 h-12 hidden md:flex"><DribbbleIcon /></a>
-							<a href="https://discord.com/" target="_blank" rel="noopener noreferrer" className="social-icon w-12 h-12 hidden md:flex"><DiscordIcon /></a>
+							<a href="https://x.com/leolouise261" target="_blank" rel="noopener noreferrer" className="social-icon w-8 h-8 md:w-12 md:h-12"><XIcon/></a>
+							<a href="https://www.facebook.com/hiddenbladesueeeee" target="_blank" rel="noopener noreferrer" className="social-icon w-12 h-12 hidden md:flex"><FacebookIcon /></a>
+							<a href="https://github.com/Leocch1" target="_blank" rel="noopener noreferrer" className="social-icon w-8 h-8 md:w-12 md:h-12"><GithubIcon /></a>
+							<a href="https://www.linkedin.com/in/leo-louise-jimenez-2169a3369/" target="_blank" rel="noopener noreferrer" className="social-icon w-8 h-8 md:w-12 md:h-12"><LinkedinIcon /></a>
+							<a href="https://dribbble.com/leo-louise-jimenez" target="_blank" rel="noopener noreferrer" className="social-icon w-12 h-12 hidden md:flex"><DribbbleIcon /></a>
+							<a href="https://www.instagram.com/leeeeeeeyoooww/" target="_blank" rel="noopener noreferrer" className="social-icon w-12 h-12 hidden md:flex"><InstagramIcon /></a>
 						</div>
 					</div>
 
