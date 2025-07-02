@@ -10,13 +10,13 @@
     --card-foreground: 0 0% 98%;
     --popover: 240 6% 10%;
     --popover-foreground: 0 0% 98%;
-    --primary: 261 90% 70%;
+    --primary: 261 90% 70%; /* Purple */
     --primary-foreground: 261 90% 10%;
-    --secondary: 39 90% 72%;
+    --secondary: 39 90% 72%; /* Yellow-Orange */
     --secondary-foreground: 39 90% 20%;
     --muted: 240 3.7% 15.9%;
     --muted-foreground: 240 5% 64.9%;
-    --accent: 165 75% 61%;
+    --accent: 165 75% 61%; /* Teal */
     --accent-foreground: 0 0% 98%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
@@ -24,6 +24,7 @@
     --input: 240 3.7% 15.9%;
     --ring: 261 90% 70%;
     --radius: 0.5rem;
+    --btn-hover-blue: 217 91% 60%;
   }
 
   .dark {
@@ -46,14 +47,67 @@
     --border: 240 3.7% 15.9%;
     --input: 240 3.7% 15.9%;
     --ring: 261 90% 70%;
+    --btn-hover-blue: 217 91% 60%;
   }
+}
 
+@layer base {
   * {
     @apply border-border;
   }
-
   body {
     @apply bg-background text-foreground;
     font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@layer components {
+  .btn-fill-animation {
+    @apply relative inline-block overflow-hidden bg-transparent border border-input text-foreground transition-all duration-300 ease-in-out;
+  }
+  .btn-fill-animation:hover {
+    @apply text-white shadow-lg border-transparent;
+  }
+  .btn-fill-animation .btn-content {
+    @apply relative z-10 flex items-center;
+  }
+  .btn-fill-animation::before {
+    content: '';
+    @apply absolute bottom-0 left-0 w-full h-full z-0;
+    background-color: hsl(var(--btn-hover-blue));
+    transition: transform 0.3s ease-in-out;
+    transform: scaleY(0);
+    transform-origin: bottom;
+  }
+  .btn-fill-animation:hover::before {
+    transform: scaleY(1);
+    transform-origin: bottom;
+  }
+
+  /* Expands the container when an icon inside is hovered */
+  .social-icons-container:has(.social-icon:hover) {
+    @apply px-6;
+  }
+
+  .social-icon {
+    @apply relative flex items-center justify-center rounded-full bg-[#f3e7d5] transition-all duration-300 ease-in-out;
+  }
+  .social-icon::after {
+    content: '';
+    @apply absolute -inset-1 rounded-full bg-gray-500/40 opacity-0 transition-all duration-300 scale-90 -z-10;
+  }
+  .social-icon:hover::after {
+    @apply scale-100 opacity-100;
+  }
+
+  /* Main hovered icon */
+  .social-icon:hover {
+    @apply scale-125 -translate-y-3 z-10;
+  }
+
+  /* Adjacent siblings of hovered icon */
+  .social-icon:has(+ .social-icon:hover),
+  .social-icon:hover + .social-icon {
+    @apply scale-110 -translate-y-1;
   }
 }
