@@ -17,12 +17,17 @@ const DiscordIcon = ({ className }: { className?: string }) => (
     </svg>
 );
 
+const XIcon = ({ className }: { className?: string }) => (
+  <svg viewBox="0 0 1200 1227" fill="currentColor" xmlns="http://www.w3.org/2000/svg" className={className}>
+    <path d="M1199.97 0H950.684L600.001 464.684L249.316 0H0L487.895 668.211L0 1227H249.316L600.001 762.316L950.684 1227H1200L712.105 558.789L1199.97 0ZM850.526 111.579L600.001 445.263L349.474 111.579H850.526ZM349.474 1115.42L600.001 781.737L850.526 1115.42H349.474Z"/>
+  </svg>
+);
+
 const socialLinks = [
-  { href: '#', icon: <Linkedin className="h-5 w-5" />, name: 'LinkedIn' },
-  { href: '#', icon: <Dribbble className="h-5 w-5" />, name: 'Dribble' },
-  { href: '#', icon: <Github className="h-5 w-5" />, name: 'Github' },
-  { href: '#', icon: <BehanceIcon className="h-5 w-5" />, name: 'Behance' },
-  { href: '#', icon: <DiscordIcon className="h-5 w-5" />, name: 'Discord' },
+  { href: 'https://www.linkedin.com/in/leo-louise-jimenez-2169a3369/', icon: <Linkedin className="h-5 w-5" />, name: 'LinkedIn' },
+  { href: 'https://github.com/Leocch1', icon: <Github className="h-5 w-5" />, name: 'Github' },
+  { href: 'https://x.com/leolouise261', icon: <XIcon className="h-5 w-5" />, name: 'X' },
+  { href: 'https://dribbble.com/leo-louise-jimenez', icon: <Dribbble className="h-5 w-5" />, name: 'Dribble' },
 ];
 
 export default function Footer() {
