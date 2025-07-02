@@ -69,7 +69,7 @@ export default function AboutSection() {
 	return (
 		<section
 			id="about"
-			className="pt-2 pb-6 md:pb-10 bg-black text-[#f3e7d5]"
+			className="pt-2 pb-6 md:pb-10 bg-[#101210] text-[#f3e7d5]" 
 		>
 			<hr
 				className="border-[#bfa27a] mb-1 w-full"
@@ -122,11 +122,14 @@ export default function AboutSection() {
 								on promises and continuously pioneering<br />
 								innovation.
 							</h2>
-							<div className="text-sm md:text-base text-[#f3e7d5] max-w-xs md:text-right mb-8 md:mb-0 px-2 md:px-0" style={{ color: "#f3e7d5", opacity: 0.85 }}>
-								My blend of design, coding, and interaction<br />
-								expertise distinguishes me within the tech<br />
-								industry.
-							</div>
+							<div
+                                className="text-xs text-[#f3e7d5] max-w-xs text-left mb-8 md:mb-0 px-2 md:px-0"
+                                style={{ color: "#f3e7d5", opacity: 0.85 }}
+                            >
+                                My blend of design, coding, and interaction<br />
+                                expertise distinguishes me within the tech<br />
+                                industry.
+                            </div>
 						</div>
 						{/* Green Heading */}
 						<div className="text-green-400 text-2xl md:text-4xl font-bold my-8">
