@@ -91,6 +91,16 @@ export default function ProjectsSection() {
 		};
 	}, []);
 
+	useEffect(() => {
+		if (isHovering) {
+			document.body.classList.add('cursor-none-important');
+		} else {
+			document.body.classList.remove('cursor-none-important');
+		}
+		// Clean up on unmount
+		return () => document.body.classList.remove('cursor-none-important');
+	}, [isHovering]);
+
 	const handleMouseEnter = (project: (typeof projectsData)[0]) => {
 		setHoveredProject(project);
 		setIsHovering(true);
@@ -119,7 +129,7 @@ export default function ProjectsSection() {
 			id="projects"
 			className={cn(
 				'py-20 md:py-28 bg-[#101210] relative',
-				isHovering && 'cursor-none'
+				isHovering ? 'cursor-none' : 'cursor-default' // Hide cursor when hovering projects
 			)}
 			initial={{ opacity: 0 }}
 			whileInView={{ opacity: 1 }}
