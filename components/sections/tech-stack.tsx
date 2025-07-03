@@ -65,22 +65,20 @@ export default function TechStackSection() {
         </p>
       </div>
       <div
-        className="relative mt-8 w-full overflow-hidden"
+        className="relative mt-8 w-full overflow-hidden px-4" // px-4 for section padding
         style={{
           maskImage: 'linear-gradient(to right, transparent, black 10%, black 90%, transparent)',
         }}
       >
-        <div className="flex w-max"
-          style={{ minWidth: '100%' }}
-        >
-          <div className="flex w-max mx-8" style={{ minWidth: '100%' }}>
+        <div className="flex w-max" style={{ minWidth: '100%' }}>
+          <div className="flex w-max mx-8 md:mx-20" style={{ minWidth: '100%' }}>
             <motion.div
-              className="flex w-max px-8"
+              className="flex w-max px-8 md:px-16"
               animate={{ x: ['-50%', '0%'] }}
               transition={{
                 repeat: Infinity,
                 repeatType: 'loop',
-                duration: 8,
+                duration: 16,
                 ease: 'linear',
               }}
             >
