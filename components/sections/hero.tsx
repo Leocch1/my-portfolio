@@ -220,10 +220,11 @@ export default function HeroSection() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.6 }}
-                  className="text-xs sm:text-sm text-white/70 pb-2 text-left hidden md:block"
+                  className="text-xs sm:text-xs text-white/70 pb-2 text-left hidden md:block tracking-wide leading-relaxed"
                 >
                   // UI/UX Designer <br />
-                  // Full-Stack Developer
+                  // Full-Stack <br />
+                  //Developer
                 </MotionDiv>
                 <MotionDiv
                   initial={{ opacity: 0, y: 20 }}
