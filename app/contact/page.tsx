@@ -151,7 +151,7 @@ export default function ContactPage() {
                       </FormLabel>
                       <FormControl>
                         <div className="pl-10">
-                          <Input placeholder="Dennis Hendry*" {...field} className="bg-transparent border-none text-muted-foreground text-lg p-0 h-auto focus-visible:ring-0 focus-visible:ring-offset-0" />
+                          <Input placeholder="Barry Allen*" {...field} className="bg-transparent border-none text-muted-foreground text-lg p-0 h-auto focus-visible:ring-0 focus-visible:ring-offset-0" />
                         </div>
                       </FormControl>
                       <FormMessage className="pl-10" />
@@ -170,7 +170,7 @@ export default function ContactPage() {
                       </FormLabel>
                       <FormControl>
                         <div className="pl-10">
-                          <Input placeholder="dennis.hendry@gmail.com*" {...field} className="bg-transparent border-none text-muted-foreground text-lg p-0 h-auto focus-visible:ring-0 focus-visible:ring-offset-0" />
+                          <Input placeholder="barry.allen@gmail.com*" {...field} className="bg-transparent border-none text-muted-foreground text-lg p-0 h-auto focus-visible:ring-0 focus-visible:ring-offset-0" />
                         </div>
                       </FormControl>
                       <FormMessage className="pl-10" />
@@ -189,7 +189,7 @@ export default function ContactPage() {
                       </FormLabel>
                       <FormControl>
                         <div className="pl-10">
-                           <Input placeholder="Dennis & Hendry" {...field} className="bg-transparent border-none text-muted-foreground text-lg p-0 h-auto focus-visible:ring-0 focus-visible:ring-offset-0" />
+                           <Input placeholder="Star Labs" {...field} className="bg-transparent border-none text-muted-foreground text-lg p-0 h-auto focus-visible:ring-0 focus-visible:ring-offset-0" />
                         </div>
                       </FormControl>
                       <FormMessage className="pl-10" />
