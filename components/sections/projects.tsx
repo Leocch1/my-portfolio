@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button';
 import { MotionDiv, MotionSection, MotionButton } from '@/components/motion';
 import { Briefcase, ArrowRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { useRouter } from "next/navigation";
 
 const projectsData = [
 	{
@@ -76,6 +77,7 @@ export default function ProjectsSection() {
 	const [isHovering, setIsHovering] = useState(false);
 	const [cursorStyle, setCursorStyle] = useState(colorStyles[0]);
 	const [buttonPosition, setButtonPosition] = useState({ x: 0, y: 0 });
+	const router = useRouter();
 
 	useEffect(() => {
 		const handleMouseMove = (event: globalThis.MouseEvent) => {
@@ -163,19 +165,21 @@ export default function ProjectsSection() {
 				</div>
 				
 				<div className="text-center mt-12">
-					<Link href="/projects" passHref>
-						<MotionButton
-							className="btn-fill-animation rounded-full px-8 py-6 text-lg font-medium"
-							onMouseMove={handleButtonMouseMove}
-							onMouseLeave={handleButtonMouseLeave}
-							animate={{ x: buttonPosition.x, y: buttonPosition.y }}
-							transition={{ type: 'spring', stiffness: 400, damping: 10, mass: 0.5 }}
-						>
-							<span className="btn-content">
-								Load More <ArrowRight className="ml-2 h-5 w-5" />
-							</span>
-						</MotionButton>
-					</Link>
+					<MotionButton
+						className="btn-fill-animation rounded-full px-8 py-6 text-lg font-medium"
+						onClick={() => {
+							router.push("/projects");
+							window.scrollTo({ top: 0, behavior: "instant" });
+						}}
+						onMouseMove={handleButtonMouseMove}
+						onMouseLeave={handleButtonMouseLeave}
+						animate={{ x: buttonPosition.x, y: buttonPosition.y }}
+						transition={{ type: 'spring', stiffness: 400, damping: 10, mass: 0.5 }}
+					>
+						<span className="btn-content">
+							Load More <ArrowRight className="ml-2 h-5 w-5" />
+						</span>
+					</MotionButton>
 				</div>
 			</div>
 
