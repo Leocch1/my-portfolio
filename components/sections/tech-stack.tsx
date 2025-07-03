@@ -50,17 +50,17 @@ export default function TechStackSection() {
       transition={{ duration: 0.5 }}
     >
       <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
-        <div className="relative inline-block mb-4 mt-0">
-            <div className="absolute top-[-10px] left-1/2 -translate-x-1/2 w-20 h-0.5 bg-primary/50" />
-            <h2 className="text-3xl md:text-4xl font-bold tracking-widest uppercase text-primary">
-                My Tech Stack
-            </h2>
+        <div className="relative inline-block mb-8 mt-0">
+          <div className="absolute top-[-16px] left-1/2 -translate-x-1/2 w-32 h-1 bg-primary/50" />
+          <h2 className="text-5xl md:text-6xl font-bold tracking-widest uppercase text-primary">
+            My Tech Stack
+          </h2>
         </div>
-        <p className="mt-4 text-lg md:text-xl max-w-3xl mx-auto text-muted-foreground">
+        <p className="mt-8 text-2xl md:text-3xl max-w-5xl mx-auto text-muted-foreground">
           My expertise spans a diverse range of{' '}
-          <span className="text-secondary font-semibold">technologies</span>, enabling me to deliver
+          <span className="text-secondary font-semibold text-2xl md:text-3xl">technologies</span>, enabling me to deliver
           comprehensive and{' '}
-          <span className="text-accent font-semibold">cutting-edge solutions</span> across various
+          <span className="text-accent font-semibold text-2xl md:text-3xl">cutting-edge solutions</span> across various
           platforms.
         </p>
       </div>
