@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState, useEffect, type MouseEvent } from 'react';
@@ -7,6 +8,8 @@ import { MotionDiv, MotionSection, MotionButton } from '@/components/motion';
 import { Briefcase, ArrowRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { useRouter } from "next/navigation";
+import { Card } from '@/components/ui/card';
+import Image from 'next/image';
 
 const projectsData = [
 	{
@@ -16,6 +19,8 @@ const projectsData = [
 		tech: 'Next.js, Typescript, Sanity, Clerk, Stripe',
 		description: 'A modern e-commerce platform for bag enthusiast.',
 		link: 'https://totentale.vercel.app/',
+		image: '/totentale1.png',
+        hint: 'ecommerce platform'
 	},
 	{
 		title: 'CvSU Enrollment System',
@@ -24,6 +29,8 @@ const projectsData = [
 		tech: 'Laravel, PHP, MySQL, Bootstrap',
     description: 'Enrollment System for Cavite State University.',
 		link: 'https://github.com/Leocch1/enrollment-system',
+		image: '/cvsu.png',
+        hint: 'enrollment system'
 	},
   {
 		title: 'Daily Sweets',
@@ -32,6 +39,8 @@ const projectsData = [
 		tech: 'React, JavaScript XML, Tailwind CSS, Django',
     description: 'An online store for selling sweets and pastries.',
 		link: 'https://github.com/Leocch1/daily-sweets',
+		image: '/dailysweets.jpg',
+        hint: 'online store sweets'
 	},
 	{
 		title: 'Leocchi Portfolio',
@@ -40,6 +49,8 @@ const projectsData = [
 		tech: 'Next.js, JavaScript XML, Tailwind CSS, Shadcn UI, Framer Motion',
     description: 'My personal portfolio showcasing my skills and projects.',
 		link: 'https://leo-jimenez.vercel.app/',
+		image: '/portfolio.png',
+        hint: 'portfolio website'
 	},
 	{
 		title: 'Student Checklist',
@@ -48,6 +59,8 @@ const projectsData = [
 		tech: 'PHP, MySQL',
     description: 'A simple checklist application for students to manage their subjects and grades',
 		link: 'https://github.com/Leolouise26/MyChecklist',
+		image: '/checklist.jpg',
+        hint: 'checklist application'
 	},
 ];
 
@@ -150,28 +163,69 @@ export default function ProjectsSection() {
 				</div>
 
 				<div>
-					{projectsData.map((project) => (
-						<Link
-							key={project.title}
-							href={project.link}
-							className="group block"
-							onMouseEnter={() => handleMouseEnter(project)}
-							onMouseLeave={handleMouseLeave}
-							target={project.link.startsWith('http') ? "_blank" : undefined} // Open external links in new tab
-							rel={project.link.startsWith('http') ? "noopener noreferrer" : undefined} // Security best practice
-						>
-							<div className="flex justify-between items-center py-12 border-b border-[#bfa27a] transition-colors duration-300 group-hover:bg-card/10 -mx-12 sm:-mx-16 lg:-mx-24 px-12 sm:px-16 lg:px-24">
-								<div>
-									<h3 className="text-2xl md:text-4xl font-semibold text-foreground/90 group-hover:text-primary transition-all duration-300 ease-in-out group-hover:scale-105 group-hover:translate-x-[100px]">{project.title}</h3>
-									<p className="text-muted-foreground mt-1 transition-transform duration-300 group-hover:translate-x-[100px]">{project.year}</p>
+					{/* Desktop View */}
+					<div className="hidden lg:block">
+						{projectsData.map((project) => (
+							<Link
+								key={project.title}
+								href={project.link}
+								className="group block"
+								onMouseEnter={() => handleMouseEnter(project)}
+								onMouseLeave={handleMouseLeave}
+								target={project.link.startsWith('http') ? "_blank" : undefined} // Open external links in new tab
+								rel={project.link.startsWith('http') ? "noopener noreferrer" : undefined} // Security best practice
+							>
+								<div className="flex justify-between items-center py-12 border-b border-[#bfa27a] transition-colors duration-300 group-hover:bg-card/10 -mx-12 sm:-mx-16 lg:-mx-24 px-12 sm:px-16 lg:px-24">
+									<div>
+										<h3 className="text-2xl md:text-4xl font-semibold text-foreground/90 group-hover:text-primary transition-all duration-300 ease-in-out group-hover:scale-105 group-hover:translate-x-[100px]">{project.title}</h3>
+										<p className="text-muted-foreground mt-1 transition-transform duration-300 group-hover:translate-x-[100px]">{project.year}</p>
+									</div>
+									<div className="text-right hidden md:block">
+										<p className="text-lg text-foreground/90 transition-transform duration-300 group-hover:-translate-x-[100px]">{project.category}</p>
+										<p className="text-sm text-muted-foreground transition-transform duration-300 group-hover:-translate-x-[100px]">{project.tech}</p>
+									</div>
 								</div>
-								<div className="text-right hidden md:block">
-									<p className="text-lg text-foreground/90 transition-transform duration-300 group-hover:-translate-x-[100px]">{project.category}</p>
-									<p className="text-sm text-muted-foreground transition-transform duration-300 group-hover:-translate-x-[100px]">{project.tech}</p>
-								</div>
-							</div>
-						</Link>
-					))}
+							</Link>
+						))}
+					</div>
+					
+					{/* Mobile & Tablet Grid View */}
+					<div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:hidden">
+						{projectsData.map((project, index) => (
+							<Link
+								key={project.title}
+								href={project.link}
+								target={project.link.startsWith('http') ? '_blank' : undefined}
+								rel={project.link.startsWith('http') ? 'noopener noreferrer' : undefined}
+								className="block group h-full"
+							>
+								<Card className="rounded-2xl overflow-hidden bg-card/30 border border-border/20 h-full flex flex-col group-hover:border-primary/50 group-hover:shadow-xl transition-all duration-300">
+									<div className="relative aspect-[4/3] w-full overflow-hidden">
+										<Image
+											src={project.image}
+											alt={project.title}
+											fill
+											className="object-cover group-hover:scale-105 transition-transform duration-300"
+											data-ai-hint={project.hint}
+										/>
+									</div>
+									<div className="p-4 flex-grow flex flex-col">
+										<div className="flex justify-between items-start gap-4">
+											<h3 className="text-xl font-semibold text-foreground/90">
+												{project.title}
+											</h3>
+											<p className="text-sm text-muted-foreground flex-shrink-0">
+												{project.year}
+											</p>
+										</div>
+										<p className="text-sm text-muted-foreground mt-1">
+											{project.tech}
+										</p>
+									</div>
+								</Card>
+							</Link>
+						))}
+					</div>
 				</div>
 				
 				<div className="text-center mt-12">
