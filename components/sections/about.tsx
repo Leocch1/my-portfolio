@@ -165,10 +165,9 @@ export default function AboutSection() {
 						{/* About Me button and Paragraph */}
 						<div className="flex flex-col-reverse md:flex-row md:items-end md:justify-between gap-6 md:gap-8 mb-8">
 							<p className="text-xl md:text-2xl text-[#f3e7d5] max-w-2xl">
-								I specialize in engineering bespoke solutions,<br />
-								consistently pushing the limits in each project,<br />
-								with an unwavering dedication to prioritizing<br />
-								excellence.
+								I build tailored solutions with a focus on growth,<br />
+								innovation, and delivering high-quality results,<br />
+								that go beyond expectations.<br />
 							</p>
 							<div className="flex-shrink-0">
 								<Link href="/about" passHref>
