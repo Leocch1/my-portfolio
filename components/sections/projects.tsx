@@ -13,6 +13,16 @@ import Image from 'next/image';
 
 const projectsData = [
 	{
+		title: 'alagaco',
+		year: '2026',
+		category: 'Web Development',
+		tech: 'Next.js, React',
+		description: 'Website for an all-in-one platform connecting households with verified local care and home-service providers.',
+		link: 'https://alagaco.com/',
+		image: '/alagaco.png',
+        hint: 'care services platform'
+	},
+	{
 		title: 'Tote&Tale',
 		year: '2025',
 		category: 'Full-Stack Development',

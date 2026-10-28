@@ -12,6 +12,20 @@ import { useState, type MouseEvent } from 'react';
 
 const detailedProjects = [
   {
+    id: 'alagaco',
+    title: 'alagaco',
+    tech: 'Next.js, React',
+    year: '2026',
+    description: [
+      'Built the website for alagaco, an all-in-one platform that connects households with verified local professionals for child and adult care, physical therapy, tutoring, home cleaning, and repairs.',
+      'Developed the site with Next.js and React, including the services overview, a step-by-step "How it works" guide, and trust & safety content explaining provider vetting and secure payments.',
+      'Created a responsive layout with dedicated service pages and clear calls to action for downloading the app and becoming a provider.',
+    ],
+    image: '/alagaco.png',
+    hint: 'care and home services platform website',
+    liveLink: 'https://alagaco.com/',
+  },
+  {
     id: 'totentale',
     title: 'Tote&Tale',
     tech: 'Next.js, Typescript, Sanity, Clerk, Stripe',
