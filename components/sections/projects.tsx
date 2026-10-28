@@ -23,6 +23,16 @@ const projectsData = [
         hint: 'care services platform'
 	},
 	{
+		title: 'alagaco App',
+		year: '2026',
+		category: 'Mobile Development',
+		tech: 'React Native, JavaScript',
+		description: 'Android and iOS app for finding and booking verified local care and home-service providers.',
+		link: 'https://play.google.com/store/apps/details?id=com.alagaco.app',
+		image: '/alagaco-app.png',
+        hint: 'mobile app screens'
+	},
+	{
 		title: 'Tote&Tale',
 		year: '2025',
 		category: 'Full-Stack Development',

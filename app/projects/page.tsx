@@ -26,6 +26,22 @@ const detailedProjects = [
     liveLink: 'https://alagaco.com/',
   },
   {
+    id: 'alagaco-app',
+    title: 'alagaco App',
+    tech: 'React Native, JavaScript',
+    year: '2026',
+    description: [
+      'Developed the alagaco mobile app with React Native and JavaScript, available on both Android and iOS, connecting households with verified local providers for care and home services.',
+      'Built core screens including a home feed with updates, a services directory with categories such as infant/child care, adult care, physical therapy, house cleaning, home repair, and tutoring, and a list of popular providers nearby.',
+      'Implemented tab navigation for Home, Services, Bookings, Messages, and Profile, along with notifications, favorites, and a branded splash screen.',
+    ],
+    image: '/alagaco-app.png',
+    hint: 'mobile app screens for a care services platform',
+    liveLink: 'https://play.google.com/store/apps/details?id=com.alagaco.app',
+    linkLabel: 'Download for Android',
+    appStoreLink: 'https://apps.apple.com/ph/app/alagaco/id6787851037',
+  },
+  {
     id: 'totentale',
     title: 'Tote&Tale',
     tech: 'Next.js, Typescript, Sanity, Clerk, Stripe',
@@ -96,27 +112,18 @@ const detailedProjects = [
 ];
 
 export default function ProjectsPage() {
-  const [positions, setPositions] = useState(
-    detailedProjects.map(() => ({ x: 0, y: 0 }))
-  );
+  // Magnetic hover offset per button, keyed by link URL (a project can have more than one button)
+  const [positions, setPositions] = useState<Record<string, { x: number; y: number }>>({});
 
-  const handleMouseMove = (e: MouseEvent<HTMLButtonElement>, index: number) => {
+  const handleMouseMove = (e: MouseEvent<HTMLButtonElement>, key: string) => {
     const rect = e.currentTarget.getBoundingClientRect();
     const x = e.clientX - rect.left - rect.width / 2;
     const y = e.clientY - rect.top - rect.height / 2;
-    setPositions(prev => {
-      const newPositions = [...prev];
-      newPositions[index] = { x: x * 0.2, y: y * 0.2 };
-      return newPositions;
-    });
+    setPositions(prev => ({ ...prev, [key]: { x: x * 0.2, y: y * 0.2 } }));
   };
 
-  const handleMouseLeave = (index: number) => {
-    setPositions(prev => {
-      const newPositions = [...prev];
-      newPositions[index] = { x: 0, y: 0 };
-      return newPositions;
-    });
+  const handleMouseLeave = (key: string) => {
+    setPositions(prev => ({ ...prev, [key]: { x: 0, y: 0 } }));
   };
 
   return (
@@ -188,20 +195,28 @@ export default function ProjectsPage() {
                     ))}
                   </ul>
 
-                  <div className="pt-4">
-                    <Link href={project.liveLink} passHref target="_blank" rel="noopener noreferrer">
-                      <MotionButton
-                        className="btn-fill-animation rounded-full px-16 py-4 text-base"
-                        onMouseMove={(e) => handleMouseMove(e, index)}
-                        onMouseLeave={() => handleMouseLeave(index)}
-                        animate={positions[index]}
-                        transition={{ type: 'spring', stiffness: 400, damping: 10, mass: 0.5 }}
-                      >
-                        <span className="btn-content">
-                          Visit
-                        </span>
-                      </MotionButton>
-                    </Link>
+                  <div className="pt-4 flex flex-wrap gap-3">
+                    {[
+                      { href: project.liveLink, label: project.linkLabel ?? 'Visit' },
+                      ...(project.appStoreLink ? [{ href: project.appStoreLink, label: 'Download for iOS' }] : []),
+                    ].map((link, _, links) => (
+                      <Link key={link.href} href={link.href} passHref target="_blank" rel="noopener noreferrer">
+                        <MotionButton
+                          className={cn(
+                            'btn-fill-animation rounded-full py-4 text-base',
+                            links.length > 1 ? 'px-8' : 'px-16'
+                          )}
+                          onMouseMove={(e) => handleMouseMove(e, link.href)}
+                          onMouseLeave={() => handleMouseLeave(link.href)}
+                          animate={positions[link.href] ?? { x: 0, y: 0 }}
+                          transition={{ type: 'spring', stiffness: 400, damping: 10, mass: 0.5 }}
+                        >
+                          <span className="btn-content">
+                            {link.label}
+                          </span>
+                        </MotionButton>
+                      </Link>
+                    ))}
                   </div>
                 </div>
               </div>

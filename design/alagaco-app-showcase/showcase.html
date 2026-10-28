@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1600px; height: 900px; overflow: hidden; }
+  body {
+    position: relative;
+    background: linear-gradient(135deg, #fff1f4 0%, #fbdde5 45%, #f6c3d0 100%);
+    font-family: "Segoe UI", system-ui, sans-serif;
+  }
+  .blob { position: absolute; border-radius: 50%; filter: blur(80px); }
+  .b1 { width: 700px; height: 700px; left: -180px; top: -220px; background: rgba(255, 143, 163, 0.45); }
+  .b2 { width: 640px; height: 640px; right: -160px; bottom: -260px; background: rgba(255, 120, 150, 0.40); }
+  .b3 { width: 520px; height: 520px; left: 540px; top: 200px; background: rgba(255, 255, 255, 0.55); }
+
+  /* Soft concentric rings behind the phones */
+  .ring { position: absolute; left: 50%; top: 52%; border-radius: 50%; border: 2px solid rgba(255, 255, 255, 0.55); transform: translate(-50%, -50%); }
+  .r1 { width: 760px; height: 760px; }
+  .r2 { width: 1040px; height: 1040px; border-color: rgba(255, 255, 255, 0.35); }
+
+  .stage { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; }
+  .phone { position: relative; }
+  .phone .clip {
+    /* rounded clip trims the background showing around each device frame */
+    border-radius: 13% / 6.4%;
+    overflow: hidden;
+    box-shadow: 0 40px 80px rgba(160, 40, 80, 0.28), 0 12px 24px rgba(160, 40, 80, 0.18);
+  }
+  .phone img { display: block; height: 100%; width: auto; transform: scale(1.025); }
+
+  .side { height: 620px; }
+  .side .clip { height: 620px; }
+  .center { height: 720px; z-index: 2; margin: 0 -4px; }
+  .center .clip { height: 720px; }
+  .left { transform: rotate(-6deg) translateY(30px); }
+  .right { transform: rotate(6deg) translateY(30px); }
+</style>
+</head>
+<body>
+  <div class="blob b1"></div>
+  <div class="blob b2"></div>
+  <div class="blob b3"></div>
+  <div class="ring r1"></div>
+  <div class="ring r2"></div>
+
+  <div class="stage">
+    <div class="phone side left"><div class="clip"><img src="splash.png" alt="" /></div></div>
+    <div class="phone center"><div class="clip"><img src="home.png" alt="" /></div></div>
+    <div class="phone side right"><div class="clip"><img src="services.png" alt="" /></div></div>
+  </div>
+</body>
+</html>
