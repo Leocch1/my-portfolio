@@ -194,17 +194,18 @@ export default function HeroSection() {
                     initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
                     animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                     transition={{ duration: 0.5, delay: 0.5 }}
-                    className="flex-shrink-0 self-center"
+                    className="flex-shrink-0 self-center flex text-base leading-none tracking-normal"
                 >
-                    <Link href="/contact" passHref>
+                    {/* flex (not inline) so the pill centers on the word instead of sitting on the headline's baseline */}
+                    <Link href="/contact" passHref className="flex">
                         <MotionButton
-                            className="btn-fill-animation rounded-full px-6 py-4 text-base font-medium inline-flex"
+                            className="btn-fill-animation rounded-full px-5 py-4 text-[15px] font-medium leading-6 tracking-tight inline-flex"
                             onMouseMove={handleMouseMove}
                             onMouseLeave={handleMouseLeave}
                             animate={{ x: position.x, y: position.y }}
                             transition={{ type: 'spring', stiffness: 400, damping: 10, mass: 0.5 }}
                         >
-                            <span className="btn-content flex items-center gap-2.5">
+                            <span className="btn-content flex items-center gap-2">
                                 <span className="relative flex h-2.5 w-2.5">
                                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
                                     <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500"></span>
