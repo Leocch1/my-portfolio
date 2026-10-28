@@ -79,19 +79,19 @@ export default function ContactPage() {
   }
 
   return (
-    <div className="flex flex-col min-h-screen bg-[#101210] text-foreground">
+    <div className="flex flex-col min-h-screen text-foreground">
       <Header />
       <main className="flex-grow container mx-auto px-4 py-16 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-16 lg:gap-24">
           
           <MotionDiv
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, x: -50, filter: "blur(10px)" }}
+            animate={{ opacity: 1, x: 0, filter: "blur(0px)" }}
             transition={{ duration: 0.5, delay: 0.2 }}
             className="relative"
           >
              <div className="lg:sticky lg:top-28">
-                <div className="relative w-24 h-24 rounded-full overflow-hidden shadow-lg mx-auto lg:mx-0 mb-12 lg:mb-0">
+                <div className="relative w-24 h-24 rounded-full overflow-hidden ring-1 ring-white/20 shadow-[0_12px_40px_rgba(0,0,0,0.4)] mx-auto lg:mx-0 mb-12 lg:mb-0">
                   <Image
                     src="/leop.jpg"
                     alt="Your Picture"
@@ -127,8 +127,8 @@ export default function ContactPage() {
           </MotionDiv>
           
           <MotionDiv
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
+            animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
             transition={{ duration: 0.5 }}
           >
             <div className="mb-16">
@@ -140,11 +140,13 @@ export default function ContactPage() {
             
             <Form {...form}>
               <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-10">
+                {/* iOS grouped list */}
+                <div className="glass rounded-[28px] divide-y divide-white/10">
                 <FormField
                   control={form.control}
                   name="name"
                   render={({ field }) => (
-                    <FormItem className="border-b pb-6" style={{ borderColor: "#bfa27a" }}>
+                    <FormItem className="px-6 py-6">
                       <FormLabel className="flex items-baseline gap-4 mb-2">
                           <span className="text-sm text-muted-foreground">01</span>
                           <span className="text-xl font-medium text-foreground/90">What's your name?</span>
@@ -163,7 +165,7 @@ export default function ContactPage() {
                   control={form.control}
                   name="email"
                   render={({ field }) => (
-                    <FormItem className="border-b pb-6" style={{ borderColor: "#bfa27a" }}>
+                    <FormItem className="px-6 py-6">
                       <FormLabel className="flex items-baseline gap-4 mb-2">
                           <span className="text-sm text-muted-foreground">02</span>
                           <span className="text-xl font-medium text-foreground/90">What's your email?</span>
@@ -182,7 +184,7 @@ export default function ContactPage() {
                   control={form.control}
                   name="organization"
                   render={({ field }) => (
-                    <FormItem className="border-b pb-6" style={{ borderColor: "#bfa27a" }}>
+                    <FormItem className="px-6 py-6">
                       <FormLabel className="flex items-baseline gap-4 mb-2">
                           <span className="text-sm text-muted-foreground">03</span>
                           <span className="text-xl font-medium text-foreground/90">What's the name of your organization?</span>
@@ -201,7 +203,7 @@ export default function ContactPage() {
                   control={form.control}
                   name="message"
                   render={({ field }) => (
-                    <FormItem className="border-b pb-6" style={{ borderColor: "#bfa27a" }}>
+                    <FormItem className="px-6 py-6">
                       <FormLabel className="flex items-baseline gap-4 mb-2">
                           <span className="text-sm text-muted-foreground">04</span>
                           <span className="text-xl font-medium text-foreground/90">What's your message?</span>
@@ -215,13 +217,13 @@ export default function ContactPage() {
                     </FormItem>
                   )}
                 />
+                </div>
 
-
-                <div className="flex justify-end pt-6 ">
+                <div className="flex justify-end pt-2">
                     <MotionButton
                         type="submit"
                         disabled={isSubmitting}
-                        className="btn-fill-animation rounded-full px-10 py-5 text-lg border-[#bfa27a]"
+                        className="btn-fill-animation rounded-full px-10 py-5 text-lg"
                         onMouseMove={handleMouseMove}
                         onMouseLeave={handleMouseLeave}
                         animate={{ x: position.x, y: position.y }}

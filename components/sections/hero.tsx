@@ -36,7 +36,7 @@ export default function HeroSection() {
     };
 
   return (
-    <section className="flex flex-grow items-center justify-center bg-[#101210] text-[#f3e7d5] p-4 pb-6 overflow-hidden">
+    <section className="flex flex-grow items-center justify-center text-foreground p-4 pb-6 overflow-hidden">
       <div className="w-full max-w-6xl mx-auto">
         <div className="relative text-center pt-24 min-h-[80vh]">
           {/* Cursors */}
@@ -104,12 +104,12 @@ export default function HeroSection() {
           </MotionDiv>
           
           <MotionDiv
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, y: -20, filter: "blur(10px)" }}
+            animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
             transition={{ duration: 0.5, delay: 0.2 }}
             className="relative flex items-center gap-4 justify-center mb-4 z-10"
           >
-            <Avatar className="h-[70px] w-[70px] border-2 border-border overflow-hidden bg-white">
+            <Avatar className="h-[70px] w-[70px] overflow-hidden bg-white ring-1 ring-white/30 shadow-[0_10px_30px_rgba(0,0,0,0.35)]">
               <AvatarImage
                 src="genmoji (1).png"
                 alt="Leo"
@@ -117,7 +117,7 @@ export default function HeroSection() {
               />
               <AvatarFallback>L</AvatarFallback>
             </Avatar>
-            <div className="h-[70px] flex items-center border border-[#bfa27a] rounded-full px-4 whitespace-nowrap bg-[#101210] text-lg font-medium text-[#f3e7d5]">
+            <div className="glass h-[70px] flex items-center rounded-full px-6 whitespace-nowrap text-lg font-medium text-foreground">
               Hello, I'm Leo
             </div>
           </MotionDiv>
@@ -128,23 +128,23 @@ export default function HeroSection() {
               {/* Mobile-only Comments Wrapper */}
               <div className="flex md:hidden justify-center items-center gap-2">
                 <MotionDiv
-                  initial={{ opacity: 0, x: -10 }}
-                  animate={{ opacity: 1, x: 0 }}
+                  initial={{ opacity: 0, x: -10, filter: "blur(10px)" }}
+                  animate={{ opacity: 1, x: 0, filter: "blur(0px)" }}
                   transition={{ duration: 0.5, delay: 0.6 }}
                   className="text-[10px] text-white/70 text-left "
                 >
                   // UI/UX Designer <br /> Full-Stack Developer
                 </MotionDiv>
                 <MotionDiv
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
+                  initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
+                  animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                   transition={{ duration: 0.5, delay: 0.3 }}
                 >
                   <span className="text-primary text-5xl sm:text-6xl">DIGITAL</span>
                 </MotionDiv>
                 <MotionDiv
-                  initial={{ opacity: 0, x: 10 }}
-                  animate={{ opacity: 1, x: 0 }}
+                  initial={{ opacity: 0, x: 10, filter: "blur(10px)" }}
+                  animate={{ opacity: 1, x: 0, filter: "blur(0px)" }}
                   transition={{ duration: 0.5, delay: 0.3 }}
                   className="text-[10px] text-white/70 text-left tracking-wide leading-relaxed"
                 >
@@ -155,15 +155,15 @@ export default function HeroSection() {
               {/* Desktop-only DIGITAL + comment */}
               <div className="hidden md:flex justify-center items-end gap-4">
                 <MotionDiv
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
+                  initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
+                  animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                   transition={{ duration: 0.5, delay: 0.3 }}
                 >
                   <span className="text-primary">DIGITAL</span>
                 </MotionDiv>
                 <MotionDiv
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
+                  initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
+                  animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                   transition={{ duration: 0.5, delay: 0.3 }}
                   className="text-[10px] sm:text-xs text-white/70 pb-2 text-left tracking-wide leading-relaxed"
                 >
@@ -173,8 +173,8 @@ export default function HeroSection() {
 
               <div className="flex justify-center items-end gap-4">
                 <MotionDiv
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
+                  initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
+                  animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                   transition={{ duration: 0.5, delay: 0.4 }}
                 >
                   <span className="text-secondary">EXPERIENCE</span>
@@ -183,15 +183,15 @@ export default function HeroSection() {
 
               <div className="flex justify-center items-center gap-4 -mt-4">
                 <MotionDiv
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
+                  initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
+                  animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                   transition={{ duration: 0.5, delay: 0.5 }}
                 >
                   <span className="text-foreground/90">STUDENT</span>
                 </MotionDiv>
                 <MotionDiv
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
+                    initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
+                    animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                     transition={{ duration: 0.5, delay: 0.5 }}
                     className="flex-shrink-0 self-center"
                 >
@@ -217,8 +217,8 @@ export default function HeroSection() {
 
               <div className="flex justify-center items-end gap-4">
                 <MotionDiv
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
+                  initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
+                  animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                   transition={{ duration: 0.6, delay: 0.6 }}
                   className="text-xs sm:text-xs text-white/70 pb-2 text-left hidden md:block tracking-wide leading-relaxed"
                 >
@@ -227,8 +227,8 @@ export default function HeroSection() {
                   //Developer
                 </MotionDiv>
                 <MotionDiv
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
+                  initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
+                  animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                   transition={{ duration: 0.6, delay: 0.7 }}
                 >
                   <span className="text-accent">& DEVELOPER.</span>
@@ -239,8 +239,8 @@ export default function HeroSection() {
 
           <MotionDiv
             className="mt-2 md:mt-4 max-w-xl mx-auto text-xl md:text-2xl text-white/70 leading-relaxed"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
+            animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
             transition={{ duration: 0.5, delay: 0.7 }}
           >
             I create a digital experience that borders on{" "}

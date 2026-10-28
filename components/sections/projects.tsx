@@ -141,7 +141,7 @@ export default function ProjectsSection() {
 		<MotionSection
 			id="projects"
 			className={cn(
-				'py-20 md:py-28 bg-[#101210] relative',
+				'py-20 md:py-28 relative',
 				isHovering ? 'cursor-none' : 'cursor-default' // Hide cursor when hovering projects
 			)}
 			initial={{ opacity: 0 }}
@@ -153,9 +153,9 @@ export default function ProjectsSection() {
 				<div className="mb-12 mt-2"> {/* Move title up a little with mt-2 */}
 					<h2 className="text-3xl md:text-4xl font-bold font-headline text-primary mb-2 lg:-ml-16">My Projects</h2>
 					<div className="relative flex items-center -mx-12 sm:-mx-16 lg:-mx-24">
-						<hr className="w-full border-t border-[#bfa27a]" /> {/* Line color matches about section */}
+						<hr className="w-full border-t border-white/10" />
 						<div className="absolute right-8 top-1/2 -translate-y-1/2">
-							<Button variant="ghost" size="icon" className="w-16 h-16 rounded-full bg-card border border-[#bfa27a]">
+							<Button variant="ghost" size="icon" className="glass w-16 h-16 rounded-full">
 								<Briefcase className="h-6 w-6 text-foreground" />
 							</Button>
 						</div>
@@ -175,7 +175,7 @@ export default function ProjectsSection() {
 								target={project.link.startsWith('http') ? "_blank" : undefined} // Open external links in new tab
 								rel={project.link.startsWith('http') ? "noopener noreferrer" : undefined} // Security best practice
 							>
-								<div className="flex justify-between items-center py-12 border-b border-[#bfa27a] transition-colors duration-300 group-hover:bg-card/10 -mx-12 sm:-mx-16 lg:-mx-24 px-12 sm:px-16 lg:px-24">
+								<div className="flex justify-between items-center py-12 border-b border-white/10 transition-colors duration-300 group-hover:bg-white/[0.04] -mx-12 sm:-mx-16 lg:-mx-24 px-12 sm:px-16 lg:px-24">
 									<div>
 										<h3 className="text-2xl md:text-4xl font-semibold text-foreground/90 group-hover:text-primary transition-all duration-300 ease-in-out group-hover:scale-105 group-hover:translate-x-[100px]">{project.title}</h3>
 										<p className="text-muted-foreground mt-1 transition-transform duration-300 group-hover:translate-x-[100px]">{project.year}</p>
@@ -199,7 +199,7 @@ export default function ProjectsSection() {
 								rel={project.link.startsWith('http') ? 'noopener noreferrer' : undefined}
 								className="block group h-full"
 							>
-								<Card className="rounded-2xl overflow-hidden bg-card/30 border border-border/20 h-full flex flex-col group-hover:border-primary/50 group-hover:shadow-xl transition-all duration-300">
+								<Card className="glass glass-interactive rounded-3xl overflow-hidden h-full flex flex-col">
 									<div className="relative aspect-[4/3] w-full overflow-hidden">
 										<Image
 											src={project.image}
@@ -258,7 +258,7 @@ export default function ProjectsSection() {
 			>
 				<CustomCursorIcon className="absolute drop-shadow-[0_2px_4px_rgba(14,165,233,0.6)]" />
 				{hoveredProject && (
-					<div className={`absolute top-10 left-10 min-w-[250px] p-3 ${cursorStyle.bg} ${cursorStyle.text} rounded-lg shadow-lg`}>
+					<div className={`absolute top-10 left-10 min-w-[250px] p-3 ${cursorStyle.bg} ${cursorStyle.text} rounded-2xl shadow-[0_12px_40px_rgba(0,0,0,0.4)]`}>
 						<h4 className="font-bold text-base">{hoveredProject.title}</h4>
 						<p className="text-sm opacity-90">{hoveredProject.description}</p>
 					</div>

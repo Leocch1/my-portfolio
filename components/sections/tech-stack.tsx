@@ -43,7 +43,7 @@ export default function TechStackSection() {
   return (
     <MotionSection 
       id="tech-stack" 
-      className="py-4 md:py-8 bg-[#101210] text-foreground" // further reduced vertical padding
+      className="py-4 md:py-8 text-foreground"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       viewport={{ once: true, amount: 0.2 }}
@@ -51,7 +51,7 @@ export default function TechStackSection() {
     >
       <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
         <div className="relative inline-block mb-8 mt-0">
-          <div className="absolute top-[-16px] left-1/2 -translate-x-1/2 w-32 h-1 bg-primary/50" />
+          <div className="absolute top-[-16px] left-1/2 -translate-x-1/2 w-32 h-1 rounded-full bg-primary/50" />
           <h2 className="text-5xl md:text-6xl font-bold tracking-widest uppercase text-primary">
             My Tech Stack
           </h2>
@@ -85,15 +85,18 @@ export default function TechStackSection() {
               {[...technologies, ...technologies].map((tech, index) => (
                 <div
                   key={`${tech.name}-${index}`}
-                  className="flex-shrink-0 w-32 h-32 flex flex-col items-center justify-center mx-1 group"
+                  className="flex-shrink-0 w-32 h-40 flex flex-col items-center justify-center mx-1 group"
                 >
-                  <img
-                    src={tech.icon}
-                    alt={tech.name}
-                    className="h-20 w-20 mb-2 transition-all duration-300 group-hover:scale-110"
-                    loading="lazy"
-                  />
-                  <div className="text-foreground/70 group-hover:text-foreground text-base font-semibold">
+                  {/* App-icon style glass tile */}
+                  <div className="glass mb-3 flex h-24 w-24 items-center justify-center rounded-[26px] transition-transform duration-300 group-hover:scale-110">
+                    <img
+                      src={tech.icon}
+                      alt={tech.name}
+                      className="h-14 w-14"
+                      loading="lazy"
+                    />
+                  </div>
+                  <div className="text-foreground/70 group-hover:text-foreground text-sm font-medium">
                     {tech.name}
                   </div>
                 </div>

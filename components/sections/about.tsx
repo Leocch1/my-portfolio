@@ -83,10 +83,10 @@ export default function AboutSection() {
 	return (
 		<section
 			id="about"
-			className="pt-2 pb-6 md:pb-10 bg-[#101210] text-[#f3e7d5]" 
+			className="pt-2 pb-6 md:pb-10 text-foreground"
 		>
 			<hr
-				className="border-[#bfa27a] mb-1 w-full"
+				className="border-white/10 mb-1 w-full"
 				style={{ position: 'relative', top: '-0.50rem' }}
 			/>
 			<div className="mx-0 max-w-none px-0">
@@ -94,12 +94,12 @@ export default function AboutSection() {
 				<div className="grid grid-cols-[1fr_auto_1fr] items-center gap-2 md:gap-4 px-4 md:px-12 mb-8">
 					{/* Left: Tagline */}
 					<div className="flex-shrink-0 justify-self-start">
-						<span className="block text-xs md:text-sm text-[#f3e7d5] font-normal">// Design, Code,<br />Engage</span>
+						<span className="block text-xs md:text-sm text-foreground/70 font-normal">// Design, Code,<br />Engage</span>
 					</div>
 
 					{/* Center: Socials */}
 					<div className="justify-self-center">
-						<div className="social-icons-container flex gap-2 bg-transparent px-3 py-1 rounded-full border border-[#bfa27a]/40 w-fit shadow transition-all duration-300 ease-in-out" style={{ background: "#181a17" }}>
+						<div className="glass social-icons-container flex gap-2 px-3 py-1.5 rounded-full w-fit transition-all duration-300 ease-in-out">
 							<a href="https://x.com/leolouise261" target="_blank" rel="noopener noreferrer" className="social-icon w-8 h-8 md:w-12 md:h-12"><XIcon/></a>
 							<a href="https://www.facebook.com/hiddenbladesueeeee" target="_blank" rel="noopener noreferrer" className="social-icon w-12 h-12 hidden md:flex"><FacebookIcon /></a>
 							<a href="https://github.com/Leocch1" target="_blank" rel="noopener noreferrer" className="social-icon w-8 h-8 md:w-12 md:h-12"><GithubIcon /></a>
@@ -112,14 +112,14 @@ export default function AboutSection() {
 					{/* Right: Email */}
 					<div className="flex-shrink-0 justify-self-end">
             <a href="mailto:leolouise26@gmail.com" className="flex items-center gap-2">
-                <div className="bg-[#f3e7d5] rounded-full w-10 h-10 flex items-center justify-center shadow border border-[#bfa27a]/40 md:h-12 md:w-12">
+                <div className="bg-white/90 rounded-full w-10 h-10 flex items-center justify-center shadow-[0_8px_24px_rgba(0,0,0,0.35)] md:h-12 md:w-12">
                     <svg width="24" height="24" fill="none" className="inline-block">
                         <rect x="3" y="5" width="18" height="14" rx="3" stroke="#111310" strokeWidth="2" />
                         <path d="M3 7l9 6 9-6" stroke="#111310" strokeWidth="2" strokeLinejoin="round" />
                     </svg>
                 </div>
                 <div>
-                  <span className="hidden md:inline text-[#bfa27a] text-base font-medium">leolouise26@gmail.com</span>
+                  <span className="hidden md:inline text-foreground/80 text-base font-medium">leolouise26@gmail.com</span>
                 </div>
             </a>
 					</div>
@@ -130,15 +130,14 @@ export default function AboutSection() {
 					<div className="relative">
 						{/* Top: Heading and Description */}
 						<div className="flex flex-col md:flex-row md:items-start md:justify-between md:gap-8">
-							<h2 className="flex-1 text-2xl md:text-3xl font-normal leading-tight mb-8 text-[#f3e7d5]">
+							<h2 className="flex-1 text-2xl md:text-3xl font-normal leading-tight tracking-tight mb-8 text-foreground">
 								Empowering success in the digital landscape.<br />
 								Together, we shape a visionary future, delivering<br />
 								on promises and continuously pioneering<br />
 								innovation.
 							</h2>
 							<div
-                                className="text-xs text-[#f3e7d5] max-w-xs text-left mb-8 md:mb-0 px-2 md:px-0"
-                                style={{ color: "#f3e7d5", opacity: 0.85 }}
+                                className="text-xs text-foreground/70 max-w-xs text-left mb-8 md:mb-0 px-2 md:px-0"
                             >
                                 My blend of design, coding, and interaction<br />
                                 expertise distinguishes me within the tech<br />
@@ -152,9 +151,9 @@ export default function AboutSection() {
 						</div>
 						{/* Line with circle on the line at the right */}
 						<div className="relative flex items-center mb-8 min-h-20">
-							<hr className="w-full border-[#bfa27a]" />
+							<hr className="w-full border-white/10" />
 							<div className="absolute right-8 top-1/2 -translate-y-1/2">
-								<div className="bg-[#f3e7d5] rounded-full w-20 h-20 flex items-center justify-center shadow-lg shrink-0">
+								<div className="bg-white/90 rounded-full w-20 h-20 flex items-center justify-center shadow-[0_12px_40px_rgba(0,0,0,0.4)] shrink-0">
 									<svg width="40" height="40" viewBox="0 0 24 24" fill="none">
 										<circle cx="12" cy="12" r="12" fill="none" />
 										<path d="M13 3L7 14H12L11 21L17 10H12L13 3Z" stroke="#111310" strokeWidth="2" strokeLinejoin="round" />
@@ -164,7 +163,7 @@ export default function AboutSection() {
 						</div>
 						{/* About Me button and Paragraph */}
 						<div className="flex flex-col-reverse md:flex-row md:items-end md:justify-between gap-6 md:gap-8 mb-8">
-							<p className="text-xl md:text-2xl text-[#f3e7d5] max-w-2xl">
+							<p className="text-xl md:text-2xl text-foreground/90 max-w-2xl">
 								I build tailored solutions with a focus on growth,<br />
 								innovation, and delivering high-quality results,<br />
 								that go beyond expectations.<br />
@@ -201,12 +200,12 @@ export default function AboutSection() {
 						{services.map((service, index) => (
 							<MotionDiv
 								key={service.title}
-								initial={{ opacity: 0, y: 50 }}
-								whileInView={{ opacity: 1, y: 0 }}
+								initial={{ opacity: 0, y: 50, filter: "blur(10px)" }}
+								whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
 								viewport={{ once: true, amount: 0.2 }}
 								transition={{ duration: 0.5, delay: 0.1 * index }}
 							>
-								<Card className="bg-card/50 border-border/50 h-full text-left p-6">
+								<Card className="glass glass-interactive rounded-3xl h-full text-left p-6 hover:-translate-y-1">
 									<CardHeader className="p-0">
 										{service.icon}
 										<CardTitle className="mt-4 text-xl">

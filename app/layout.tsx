@@ -1,6 +1,7 @@
 import type {Metadata} from 'next';
 import './globals.css';
 import { Toaster } from "@/components/ui/toaster";
+import AmbientBackground from "@/components/ambient-background";
 
 export const metadata = {
   title: "Leocchi | Personal Website",
@@ -24,6 +25,7 @@ export default function RootLayout({
         <link rel="icon" type="image/png" href="/genmoji2.png" />
       </head>
       <body className="font-body antialiased">
+        <AmbientBackground className="fixed inset-0 -z-10" intensity={0.7} />
         {children}
         <Toaster />
       </body>

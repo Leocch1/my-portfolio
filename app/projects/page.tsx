@@ -106,12 +106,12 @@ export default function ProjectsPage() {
   };
 
   return (
-    <div className="flex flex-col min-h-screen bg-[#101210] text-foreground">
+    <div className="flex flex-col min-h-screen text-foreground">
       <Header />
       <main className="flex-grow container mx-auto px-4 py-16 sm:px-6 lg:px-8">
         <MotionDiv
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: -20, filter: "blur(10px)" }}
+          animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
           transition={{ duration: 0.5 }}
           className="mb-16"
         >
@@ -119,13 +119,12 @@ export default function ProjectsPage() {
             My Projects
           </h1>
           <div className="relative flex items-center">
-            <hr className="w-full border-t-2" style={{ borderColor: "#bfa27a" }} />
+            <hr className="w-full border-t border-white/10" />
             <div className="absolute right-0 md:right-8 top-1/2 -translate-y-1/2">
                <Button
                 size="icon"
-                variant="outline"
-                className="rounded-full w-16 h-16 bg-background border-2 shadow-lg"
-                style={{ borderColor: "#bfa27a" }}
+                variant="ghost"
+                className="glass rounded-full w-16 h-16"
               >
                 <Briefcase className="h-7 w-7" />
               </Button>
@@ -137,10 +136,9 @@ export default function ProjectsPage() {
           {detailedProjects.map((project, index) => (
             <MotionDiv
               key={project.id}
-              className="bg-[#101210] rounded-2xl border-2 p-4 sm:p-6"
-              style={{ borderColor: "#bfa27a" }}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              className="glass rounded-[32px] p-4 sm:p-6"
+              initial={{ opacity: 0, y: 50, filter: "blur(10px)" }}
+              whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
               viewport={{ once: true, amount: 0.1 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
             >
@@ -148,7 +146,7 @@ export default function ProjectsPage() {
                 <div className={cn(
                     index % 2 !== 0 && "lg:order-last"
                 )}>
-                  <div className="relative aspect-video rounded-lg overflow-hidden shadow-2xl">
+                  <div className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl ring-1 ring-white/10">
                     <Image
                       src={project.image}
                       alt={project.title}
@@ -168,7 +166,7 @@ export default function ProjectsPage() {
                     <span className="text-sm text-muted-foreground font-mono flex-shrink-0 mt-2">{project.year}</span>
                   </div>
                   
-                  <hr className="border-t-2" style={{ borderColor: "#bfa27a" }}/>
+                  <hr className="border-t border-white/10" />
                   
                   <ul className="space-y-2 list-disc list-inside text-foreground/80 text-sm">
                     {project.description.map((point, i) => (
@@ -179,8 +177,7 @@ export default function ProjectsPage() {
                   <div className="pt-4">
                     <Link href={project.liveLink} passHref target="_blank" rel="noopener noreferrer">
                       <MotionButton
-                        className="btn-fill-animation rounded-full px-16 py-4 text-base border-2"
-                        style={{ borderColor: "#bfa27a" }}
+                        className="btn-fill-animation rounded-full px-16 py-4 text-base"
                         onMouseMove={(e) => handleMouseMove(e, index)}
                         onMouseLeave={() => handleMouseLeave(index)}
                         animate={positions[index]}

@@ -39,7 +39,7 @@ export default function Footer() {
 
   return (
     <MotionFooter 
-      className="bg-[#101210] text-foreground/80 pt-12 pb-8 relative" // removed border-t and border color
+      className="text-foreground/80 pt-12 pb-8 relative"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       viewport={{ once: true, amount: 0.1 }}
@@ -47,7 +47,7 @@ export default function Footer() {
     >
       <div className="w-full px-0 sm:px-0 lg:px-0">
         {/* Rectangle container with border */}
-        <div className="border border-[#bfa27a] rounded-xl mx-4 sm:mx-8 lg:mx-16 p-0 md:p-8 mb-0 relative overflow-hidden" style={{ minHeight: '340px' }}>
+        <div className="glass rounded-[32px] mx-4 sm:mx-8 lg:mx-16 p-6 md:p-8 mb-0 relative overflow-hidden" style={{ minHeight: '340px' }}>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             <div>
               <h3 className="text-base font-medium leading-tight">
@@ -110,8 +110,8 @@ export default function Footer() {
             }}
           >
             <MotionDiv
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, y: 50, filter: "blur(10px)" }}
+              whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.8 }}
               className="w-full text-center"
@@ -119,7 +119,7 @@ export default function Footer() {
               <h1
                 className="text-[18vw] md:text-[11vw] font-black tracking-tighter"
                 style={{
-                  color: '#f3f3d5',
+                  color: 'rgba(255, 255, 255, 0.92)',
                   lineHeight: 1,
                   letterSpacing: '-0.05em',
                   margin: 0,
@@ -133,7 +133,7 @@ export default function Footer() {
           </div>
         </div>
         {/* Footer bottom info */}
-        <div className="mt-0 pt-2 text-xs text-muted-foreground mx-4 sm:mx-8 lg:mx-16">
+        <div className="mt-0 pt-4 text-xs text-muted-foreground mx-4 sm:mx-8 lg:mx-16">
           <div className="flex flex-col text-center gap-1 sm:flex-row sm:justify-between sm:text-left">
             <p>&copy; {year} Leocchi - <Link href="#" className="hover:text-primary">Privacy Policy</Link></p>
             <p>Metro Manila, Philippines</p>

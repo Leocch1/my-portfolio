@@ -17,7 +17,7 @@ export default function Home() {
       {!splashFinished && <HelloSplash onFinish={() => setSplashFinished(true)} />}
 
       {splashFinished && (
-        <div className="flex flex-col min-h-screen bg-background">
+        <div className="flex flex-col min-h-screen">
           <Header />
           <main className="flex-grow">
             <HeroSection />

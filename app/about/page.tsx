@@ -108,14 +108,14 @@ export default function AboutPage() {
   };
 
   return (
-    <div className="flex flex-col min-h-screen bg-[#101210] text-foreground relative">
+    <div className="flex flex-col min-h-screen text-foreground relative">
       <Header />
       <main className="flex-grow container mx-auto px-4 py-16 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-24">
           <div>
             <MotionDiv
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, y: -20, filter: "blur(10px)" }}
+              animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
               transition={{ duration: 0.5 }}
             >
               <h1 className="text-5xl md:text-7xl font-bold tracking-tighter">
@@ -128,11 +128,11 @@ export default function AboutPage() {
             
             <MotionDiv
               className="mt-12 max-w-3xl"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
+              animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
               transition={{ duration: 0.5, delay: 0.2 }}
             >
-              <hr className="mb-8" style={{ borderColor: "#bfa27a" }} />
+              <hr className="mb-8" style={{ borderColor: "rgba(255, 255, 255, 0.1)" }} />
               <p className="text-xl md:text-2xl text-muted-foreground leading-snug">
                 As a Computer Science student aspiring to be a Software Engineer, I excel in building scalable applications, enhancing user experiences, and streamlining development processes.
               </p>
@@ -140,9 +140,9 @@ export default function AboutPage() {
           </div>
           
           <MotionDiv
-            className="relative w-[600px] h-[700px] rounded-2xl overflow-hidden hidden lg:block"
-            initial={{ opacity: 0, scale: 0.9, x: 50 }}
-            animate={{ opacity: 1, scale: 1, x: 0 }}
+            className="relative w-[600px] h-[700px] rounded-[40px] overflow-hidden hidden lg:block ring-1 ring-white/15 shadow-[0_30px_80px_rgba(0,0,0,0.5)]"
+            initial={{ opacity: 0, scale: 0.9, x: 50, filter: "blur(16px)" }}
+            animate={{ opacity: 1, scale: 1, x: 0, filter: "blur(0px)" }}
             transition={{ duration: 0.5, delay: 0.4 }}
           >
             <Image
@@ -171,14 +171,14 @@ export default function AboutPage() {
                 <MotionDiv
                     key={service.number}
                     className="relative"
-                    initial={{ opacity: 0, y: 50 }}
-                    whileInView={{ opacity: 1, y: 0 }}
+                    initial={{ opacity: 0, y: 50, filter: "blur(10px)" }}
+                    whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                     viewport={{ once: true, amount: 0.3 }}
                     transition={{ duration: 0.5, delay: index * 0.1 }}
                 >
                     <div className="flex items-center gap-4 mb-4">
                       <span className="text-sm text-muted-foreground">{service.number}</span>
-                      <hr className="w-full" style={{ borderColor: "#bfa27a" }} />
+                      <hr className="w-full" style={{ borderColor: "rgba(255, 255, 255, 0.1)" }} />
                     </div>
                     <div className="pt-4">
                         <h3 className="text-3xl font-bold mb-4">{service.title}</h3>
@@ -195,7 +195,7 @@ export default function AboutPage() {
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.5, delay: 0.4 }}
         >
-            <hr className="mb-12" style={{ borderColor: "#bfa27a" }} />
+            <hr className="mb-12" style={{ borderColor: "rgba(255, 255, 255, 0.1)" }} />
             <div className="text-center mb-16">
                 <h2 className="text-4xl font-bold tracking-tight">Online Certifications</h2>
                 <p className="mt-2 text-lg text-muted-foreground">My commitment to continuous learning.</p>
@@ -204,13 +204,13 @@ export default function AboutPage() {
                 {certifications.map((cert, index) => (
                     <MotionDiv
                         key={index}
-                        className="bg-card/30 rounded-lg border border-border/20 p-4 flex flex-col items-center text-center group"
-                        initial={{ opacity: 0, y: 50 }}
-                        whileInView={{ opacity: 1, y: 0 }}
+                        className="glass glass-interactive rounded-3xl p-4 flex flex-col items-center text-center group"
+                        initial={{ opacity: 0, y: 50, filter: "blur(10px)" }}
+                        whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                         viewport={{ once: true, amount: 0.2 }}
                         transition={{ duration: 0.5, delay: index * 0.1 }}
                     >
-                        <div className="relative w-full aspect-[16/9] rounded-md overflow-hidden bg-muted mb-4">
+                        <div className="relative w-full aspect-[16/9] rounded-2xl overflow-hidden bg-muted mb-4">
                             <Image
                               src={cert.image.startsWith('http') ? cert.image : `/${cert.image}`}
                               alt={cert.title}
@@ -236,11 +236,11 @@ export default function AboutPage() {
             viewport={{ once: true, amount: 0.5 }}
             transition={{ duration: 0.5, delay: 0.2 }}
         >
-            <hr className="mb-12" style={{ borderColor: "#bfa27a" }} />
+            <hr className="mb-12" style={{ borderColor: "rgba(255, 255, 255, 0.1)" }} />
             <div className="text-center">
               <Link href="/contact" passHref>
                   <MotionButton
-                    className="btn-fill-animation rounded-full px-8 py-6 text-lg font-medium border-[#bfa27a]"
+                    className="btn-fill-animation rounded-full px-8 py-6 text-lg font-medium"
                     onMouseMove={handleMouseMove}
                     onMouseLeave={handleMouseLeave}
                     animate={{ x: position.x, y: position.y }}
