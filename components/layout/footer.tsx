@@ -51,7 +51,7 @@ export default function Footer() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             <div>
               <h3 className="text-base font-medium leading-tight">
-                Where <span className="text-primary font-semibold">aesthetics</span> & <span className="text-accent font-semibold">functionality</span> meet
+                Where <span className="text-primary font-semibold">clean code</span> & <span className="text-accent font-semibold">functionality</span> meet
               </h3>
             </div>
             <div>

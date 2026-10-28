@@ -33,18 +33,18 @@ const WavingHand = () => {
 const services = [
     {
         number: '01',
-        title: 'Design',
-        description: 'With a proven track record in designing websites, I deliver robust and user-friendly digital designs that are seamlessly integrated with development. My expertise ensures that each project not only looks great but also performs flawlessly, providing an exceptional user experience from start to finish.',
+        title: 'Frontend',
+        description: 'I build responsive, accessible interfaces with React, Next.js and Tailwind CSS, turning layouts into fast, maintainable components. Where it improves the experience, I add motion with Framer Motion.',
     },
     {
         number: '02',
-        title: 'Development',
-        description: 'I build scalable websites from scratch that fit seamlessly with design. My focus is on micro animations, transitions, and interaction. I use Next.js and React.js for development and incorporate GSAP and Framer Motion for animations.',
+        title: 'Backend',
+        description: 'I write server-side logic, REST APIs and database schemas with Laravel, PHP, Django and MySQL, and integrate services such as authentication and payments using Clerk and Stripe.',
     },
     {
         number: '03',
-        title: 'The full package',
-        description: 'What sets me apart is my ability to deliver complete full-stack applications from concept to implementation. My keen eye for design, along with my expertise in frontend and backend development, including database integration, allows me to create exceptional projects.',
+        title: 'Full-stack projects',
+        description: 'I enjoy taking a project from idea to deployment: planning the data model, building the frontend and backend, and shipping it. Every project is a chance to sharpen my fundamentals and learn something new.',
     },
 ];
 
@@ -122,7 +122,7 @@ export default function AboutPage() {
                 Hello! I'm Leo <WavingHand />
               </h1>
               <h2 className="text-5xl md:text-7xl font-bold tracking-tighter text-foreground/80">
-                Crafting Digital Excellence
+                Junior Full-Stack Developer
               </h2>
             </MotionDiv>
             
@@ -134,7 +134,7 @@ export default function AboutPage() {
             >
               <hr className="mb-8" style={{ borderColor: "rgba(255, 255, 255, 0.1)" }} />
               <p className="text-xl md:text-2xl text-muted-foreground leading-snug">
-                As a Computer Science graduate and full-stack developer, I excel in building scalable applications, enhancing user experiences, and streamlining development processes.
+                I'm a junior full-stack developer and Computer Science graduate who enjoys building scalable applications, improving user experiences, and streamlining development processes.
               </p>
             </MotionDiv>
           </div>

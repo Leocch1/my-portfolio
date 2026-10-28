@@ -5,7 +5,7 @@ import AmbientBackground from "@/components/ambient-background";
 
 export const metadata = {
   title: "Leocchi | Personal Website",
-  description: "Portfolio of Leocchi - UI/UX Designer & Developer",
+  description: "Portfolio of Leocchi - Junior Full-Stack Developer",
   icons: {
     icon: "/genmoji2.png",
   },

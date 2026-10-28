@@ -33,7 +33,7 @@ export default function SocialBar() {
       <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-2 md:gap-4 px-4 md:px-12 py-4 md:py-5">
         {/* Left: Tagline */}
         <div className="flex-shrink-0 justify-self-start">
-          <span className="block text-xs md:text-sm text-foreground/70 font-normal">// Design, Code,<br />Engage</span>
+          <span className="block text-xs md:text-sm text-foreground/70 font-normal">// Build, Ship,<br />Learn</span>
         </div>
 
         {/* Center: Socials */}

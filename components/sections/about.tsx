@@ -2,34 +2,34 @@
 
 import { useState, type MouseEvent } from 'react';
 import Link from 'next/link';
-import { ArrowRight, Component, Palette, PenTool, Zap } from 'lucide-react';
+import { ArrowRight, Monitor, Server, Smartphone, Zap } from 'lucide-react';
 import { MotionDiv, MotionButton } from '../motion';
 import { Card, CardContent, CardHeader, CardTitle } from '../ui/card';
 
 const services = [
 	{
-		icon: <PenTool className="h-8 w-8 text-accent" />,
-		title: 'UI & UX',
+		icon: <Monitor className="h-8 w-8 text-accent" />,
+		title: 'Frontend',
 		description:
-			'Designing interfaces that are intuitive, efficient, and enjoyable to use.',
+			'Building responsive, accessible interfaces with React, Next.js and Tailwind CSS.',
 	},
 	{
-		icon: <Component className="h-8 w-8 text-primary" />,
-		title: 'Web & Mobile App',
+		icon: <Server className="h-8 w-8 text-primary" />,
+		title: 'Backend & APIs',
 		description:
-			'Transforming ideas into exceptional web and mobile app experiences.',
+			'Writing server logic, REST APIs and databases with Laravel, Django and MySQL.',
 	},
 	{
-		icon: <Palette className="h-8 w-8 text-rose-500" />,
-		title: 'Design & Creative',
+		icon: <Smartphone className="h-8 w-8 text-rose-500" />,
+		title: 'Web & Mobile Apps',
 		description:
-			'Crafting visually stunning design that connects deeply with your audience.',
+			'Turning ideas into working web apps and cross-platform mobile apps with React Native.',
 	},
 	{
 		icon: <Zap className="h-8 w-8 text-secondary" />,
-		title: 'Development',
+		title: 'Always Learning',
 		description:
-			'Bringing your vision to life with the latest technology and design trends.',
+			'Growing as a junior developer by picking up new tools and best practices with every project.',
 	},
 ];
 
@@ -60,23 +60,23 @@ export default function AboutSection() {
 						{/* Top: Heading and Description */}
 						<div className="flex flex-col md:flex-row md:items-start md:justify-between md:gap-8">
 							<h2 className="flex-1 text-2xl md:text-3xl font-normal leading-tight tracking-tight mb-8 text-foreground">
-								Empowering success in the digital landscape.<br />
-								Together, we shape a visionary future, delivering<br />
-								on promises and continuously pioneering<br />
-								innovation.
+								A junior full-stack developer building<br />
+								reliable, user-friendly web applications,<br />
+								and learning something new<br />
+								with every project.
 							</h2>
 							<div
                                 className="text-xs text-foreground/70 max-w-xs text-left mb-8 md:mb-0 px-2 md:px-0"
                             >
-                                My blend of design, coding, and interaction<br />
-                                expertise distinguishes me within the tech<br />
-                                industry.
+                                Solid fundamentals, clean code and a<br />
+                                willingness to learn are what I bring<br />
+                                to every team.
                             </div>
 						</div>
 						{/* Green Heading */}
 						<div className="text-green-400 text-2xl md:text-4xl font-bold my-8">
-							Coding the Future<br />
-							Architecting Innovation
+							Writing Clean Code<br />
+							Shipping Real Projects
 						</div>
 						{/* Line with circle on the line at the right */}
 						<div className="relative flex items-center mb-8 min-h-20">

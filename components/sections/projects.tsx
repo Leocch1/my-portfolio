@@ -15,7 +15,7 @@ const projectsData = [
 	{
 		title: 'Tote&Tale',
 		year: '2025',
-		category: 'UI/UX Design & Development',
+		category: 'Full-Stack Development',
 		tech: 'Next.js, Typescript, Sanity, Clerk, Stripe',
 		description: 'A modern e-commerce platform for bag enthusiast.',
 		link: 'https://totentale.vercel.app/',
@@ -25,7 +25,7 @@ const projectsData = [
 	{
 		title: 'CvSU Enrollment System',
 		year: '2024',
-		category: 'UI/UX Design & Development',
+		category: 'Full-Stack Development',
 		tech: 'Laravel, PHP, MySQL, Bootstrap',
     description: 'Enrollment System for Cavite State University.',
 		link: 'https://github.com/Leocch1/enrollment-system',
@@ -35,7 +35,7 @@ const projectsData = [
   {
 		title: 'Daily Sweets',
 		year: '2024',
-		category: 'UI/UX Design & Development',
+		category: 'Full-Stack Development',
 		tech: 'React, JavaScript XML, Tailwind CSS, Django',
     description: 'An online store for selling sweets and pastries.',
 		link: 'https://github.com/Leocch1/daily-sweets',
@@ -45,7 +45,7 @@ const projectsData = [
 	{
 		title: 'Leocchi Portfolio',
 		year: '2023',
-		category: 'UI/UX Design & Development',
+		category: 'Frontend Development',
 		tech: 'Next.js, JavaScript XML, Tailwind CSS, Shadcn UI, Framer Motion',
     description: 'My personal portfolio showcasing my skills and projects.',
 		link: 'https://leo-jimenez.vercel.app/',
@@ -55,7 +55,7 @@ const projectsData = [
 	{
 		title: 'Student Checklist',
 		year: '2023',
-		category: 'UI/UX Design & Development',
+		category: 'Web Development',
 		tech: 'PHP, MySQL',
     description: 'A simple checklist application for students to manage their subjects and grades',
 		link: 'https://github.com/Leolouise26/MyChecklist',

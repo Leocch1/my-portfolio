@@ -134,14 +134,14 @@ export default function HeroSection() {
                   transition={{ duration: 0.5, delay: 0.6 }}
                   className="text-[10px] text-white/70 text-left "
                 >
-                  // UI/UX Designer <br /> Full-Stack Developer
+                  // React · Next.js <br /> React Native
                 </MotionDiv>
                 <MotionDiv
                   initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
                   animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                   transition={{ duration: 0.5, delay: 0.3 }}
                 >
-                  <span className="text-primary text-5xl sm:text-6xl">DIGITAL</span>
+                  <span className="text-primary text-5xl sm:text-6xl">JUNIOR</span>
                 </MotionDiv>
                 <MotionDiv
                   initial={{ opacity: 0, x: 10, filter: "blur(10px)" }}
@@ -160,7 +160,7 @@ export default function HeroSection() {
                   animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                   transition={{ duration: 0.5, delay: 0.3 }}
                 >
-                  <span className="text-primary">DIGITAL</span>
+                  <span className="text-primary">JUNIOR</span>
                 </MotionDiv>
                 <MotionDiv
                   initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
@@ -178,17 +178,17 @@ export default function HeroSection() {
                   animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                   transition={{ duration: 0.5, delay: 0.4 }}
                 >
-                  <span className="text-secondary">EXPERIENCE</span>
+                  <span className="text-secondary">FULL-STACK</span>
                 </MotionDiv>
               </div>
 
-              <div className="flex justify-center items-center gap-4 -mt-4">
+              <div className="flex flex-wrap md:flex-nowrap justify-center items-center gap-x-4 gap-y-2 -mt-4">
                 <MotionDiv
                   initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
                   animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                   transition={{ duration: 0.5, delay: 0.5 }}
                 >
-                  <span className="text-foreground/90">DESIGNER</span>
+                  <span className="text-foreground/90">WEB/MOBILE</span>
                 </MotionDiv>
                 <MotionDiv
                     initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
@@ -224,16 +224,15 @@ export default function HeroSection() {
                   transition={{ duration: 0.6, delay: 0.6 }}
                   className="text-xs sm:text-xs text-white/70 pb-2 text-left hidden md:block tracking-wide leading-relaxed"
                 >
-                  // UI/UX Designer <br />
-                  // Full-Stack <br />
-                  //Developer
+                  // React · Next.js <br />
+                  // React Native
                 </MotionDiv>
                 <MotionDiv
                   initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
                   animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                   transition={{ duration: 0.6, delay: 0.7 }}
                 >
-                  <span className="text-accent">& DEVELOPER.</span>
+                  <span className="text-accent">DEVELOPER.</span>
                 </MotionDiv>
               </div>
             </h1>
@@ -245,9 +244,9 @@ export default function HeroSection() {
             animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
             transition={{ duration: 0.5, delay: 0.7 }}
           >
-            I create a digital experience that borders on{" "}
+            I build web and mobile apps with a focus on{" "}
             <span className="text-secondary font-bold">efficiency</span>,{" "}
-            <span className="text-foreground/90 font-bold">aesthetics</span> and{" "}
+            <span className="text-foreground/90 font-bold">clean code</span> and{" "}
             <span className="text-accent font-bold">functionality</span>.
           </MotionDiv>
         </div>
