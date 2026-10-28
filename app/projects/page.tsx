@@ -111,7 +111,7 @@ export default function ProjectsPage() {
       <main className="flex-grow container mx-auto px-4 py-16 sm:px-6 lg:px-8">
         <MotionDiv
           initial={{ opacity: 0, y: -20, filter: "blur(10px)" }}
-          animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+          animate={{ opacity: 1, y: 0, filter: "blur(0px)", transitionEnd: { filter: "none" } }}
           transition={{ duration: 0.5 }}
           className="mb-16"
         >
@@ -138,7 +138,7 @@ export default function ProjectsPage() {
               key={project.id}
               className="glass rounded-[32px] p-4 sm:p-6"
               initial={{ opacity: 0, y: 50, filter: "blur(10px)" }}
-              whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+              whileInView={{ opacity: 1, y: 0, filter: "blur(0px)", transitionEnd: { filter: "none" } }}
               viewport={{ once: true, amount: 0.1 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
             >

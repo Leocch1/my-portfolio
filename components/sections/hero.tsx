@@ -4,6 +4,8 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { MotionDiv, MotionButton } from "@/components/motion";
 import Link from "next/link";
 import { useState, type MouseEvent } from 'react';
+import { motion, useReducedMotion } from "framer-motion";
+import { cn } from "@/lib/utils";
 
 const FilledCursor = ({ className, color }: { className?: string, color: string }) => (
     <svg
@@ -19,6 +21,47 @@ const FilledCursor = ({ className, color }: { className?: string, color: string 
         <path d="M3 3l7.07 16.97 2.51-7.39 7.39-2.51L3 3z"></path>
     </svg>
 );
+
+const LOOP_STEPS = 24;
+
+// Sits just below its (relatively positioned) parent, pointing up at it, and glides side to side
+// on a flat loop (wide `travel`, small `lift`) so the motion has a slight circular feel
+const PointingCursor = ({
+    color,
+    travel,
+    lift = 8,
+    duration,
+    mirrored = false,
+    className,
+}: {
+    color: string;
+    travel: number;
+    lift?: number;
+    duration: number;
+    mirrored?: boolean;
+    className?: string;
+}) => {
+    const reduceMotion = useReducedMotion();
+    // Start on the left; a mirrored cursor also loops the other way round
+    const angles = Array.from({ length: LOOP_STEPS + 1 }, (_, i) => Math.PI + (mirrored ? -1 : 1) * (2 * Math.PI * i) / LOOP_STEPS);
+    const x = angles.map((a) => travel * Math.cos(a));
+    const y = angles.map((a) => lift * Math.sin(a));
+
+    return (
+        <motion.div
+            aria-hidden
+            className={cn("pointer-events-none absolute left-1/2 top-full z-30 mt-1 h-8 w-8", className)}
+            initial={{ x: x[0], y: y[0] }}
+            animate={reduceMotion ? undefined : { x, y }}
+            transition={{ duration, ease: "linear", repeat: Infinity }}
+        >
+            <FilledCursor
+                className={cn("h-full w-full drop-shadow-[0_4px_10px_rgba(0,0,0,0.45)]", mirrored && "-scale-x-100")}
+                color={color}
+            />
+        </motion.div>
+    );
+};
 
 
 export default function HeroSection() {
@@ -36,76 +79,13 @@ export default function HeroSection() {
     };
 
   return (
-    <section className="flex flex-grow items-center justify-center text-foreground p-4 pb-6 md:py-4 overflow-hidden">
+    // overflow-x-clip (not hidden) so the cursors can't add horizontal scroll but aren't cut off below
+    <section className="flex flex-grow items-center justify-center text-foreground p-4 pb-6 md:py-4 overflow-x-clip">
       <div className="w-full max-w-6xl mx-auto">
         <div className="relative text-center pt-24 min-h-[80vh] md:pt-0 md:min-h-0">
-          {/* Cursors */}
-          <MotionDiv
-            className="absolute z-30 h-6 w-6 md:h-8 md:w-8"
-            style={{ 
-              top: '20%', 
-              left: '48%' 
-            }}
-            animate={{
-              x: [-25, 25, -25],
-              y: [20, -20, 20],
-              rotate: [-25, 25, -25],
-            }}
-            transition={{
-              duration: 8,
-              ease: 'easeInOut',
-              repeat: Infinity,
-              repeatType: 'mirror',
-            }}
-          >
-            <FilledCursor className="h-full w-full" color="#3b82f6" />
-          </MotionDiv>
-          
-          <MotionDiv
-            className="absolute z-30 h-8 w-8 hidden md:block"
-            style={{ 
-              top: '60%',
-              right: '38%'
-            }}
-            animate={{
-              x: [30, -30, 30],
-              y: [-25, 25, -25],
-              rotate: [-20, 20, -20],
-            }}
-            transition={{
-              duration: 8.5,
-              ease: 'easeInOut',
-              repeat: Infinity,
-              repeatType: 'mirror',
-            }}
-          >
-            <FilledCursor className="h-full w-full" color="#ec4899" />
-          </MotionDiv>
-          
-          <MotionDiv
-            className="absolute z-30 h-8 w-8 hidden md:block"
-            style={{
-              bottom: '18%', 
-              left: '20%'
-            }}
-            animate={{
-              x: [-25, 25, -25],
-              y: [20, -20, 20],
-              rotate: [30, -30, 30],
-            }}
-            transition={{
-              duration: 7.5,
-              ease: 'easeInOut',
-              repeat: Infinity,
-              repeatType: 'mirror',
-            }}
-          >
-            <FilledCursor className="h-full w-full" color="#a855f7" />
-          </MotionDiv>
-          
           <MotionDiv
             initial={{ opacity: 0, y: -20, filter: "blur(10px)" }}
-            animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+            animate={{ opacity: 1, y: 0, filter: "blur(0px)", transitionEnd: { filter: "none" } }}
             transition={{ duration: 0.5, delay: 0.2 }}
             className="relative flex items-center gap-4 justify-center mb-4 z-10"
           >
@@ -117,8 +97,9 @@ export default function HeroSection() {
               />
               <AvatarFallback>L</AvatarFallback>
             </Avatar>
-            <div className="glass h-[70px] flex items-center rounded-full px-6 whitespace-nowrap text-lg font-medium text-foreground">
+            <div className="glass relative h-[70px] flex items-center rounded-full px-6 whitespace-nowrap text-lg font-medium text-foreground">
               Hello, I'm Leo
+              <PointingCursor color="#3b82f6" travel={45} duration={6} className="h-6 w-6 md:h-8 md:w-8" />
             </div>
           </MotionDiv>
 
@@ -130,7 +111,7 @@ export default function HeroSection() {
               <div className="flex md:hidden justify-center items-center gap-2">
                 <MotionDiv
                   initial={{ opacity: 0, x: -10, filter: "blur(10px)" }}
-                  animate={{ opacity: 1, x: 0, filter: "blur(0px)" }}
+                  animate={{ opacity: 1, x: 0, filter: "blur(0px)", transitionEnd: { filter: "none" } }}
                   transition={{ duration: 0.5, delay: 0.6 }}
                   className="text-[10px] text-white/70 text-left "
                 >
@@ -138,14 +119,14 @@ export default function HeroSection() {
                 </MotionDiv>
                 <MotionDiv
                   initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
-                  animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                  animate={{ opacity: 1, y: 0, filter: "blur(0px)", transitionEnd: { filter: "none" } }}
                   transition={{ duration: 0.5, delay: 0.3 }}
                 >
                   <span className="text-primary text-5xl sm:text-6xl">JUNIOR</span>
                 </MotionDiv>
                 <MotionDiv
                   initial={{ opacity: 0, x: 10, filter: "blur(10px)" }}
-                  animate={{ opacity: 1, x: 0, filter: "blur(0px)" }}
+                  animate={{ opacity: 1, x: 0, filter: "blur(0px)", transitionEnd: { filter: "none" } }}
                   transition={{ duration: 0.5, delay: 0.3 }}
                   className="text-[10px] text-white/70 text-left tracking-wide leading-relaxed"
                 >
@@ -157,14 +138,14 @@ export default function HeroSection() {
               <div className="hidden md:flex justify-center items-end gap-4">
                 <MotionDiv
                   initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
-                  animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                  animate={{ opacity: 1, y: 0, filter: "blur(0px)", transitionEnd: { filter: "none" } }}
                   transition={{ duration: 0.5, delay: 0.3 }}
                 >
                   <span className="text-primary">JUNIOR</span>
                 </MotionDiv>
                 <MotionDiv
                   initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
-                  animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                  animate={{ opacity: 1, y: 0, filter: "blur(0px)", transitionEnd: { filter: "none" } }}
                   transition={{ duration: 0.5, delay: 0.3 }}
                   className="text-[10px] sm:text-xs text-white/70 pb-2 text-left tracking-wide leading-relaxed"
                 >
@@ -175,7 +156,7 @@ export default function HeroSection() {
               <div className="flex justify-center items-end gap-4">
                 <MotionDiv
                   initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
-                  animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                  animate={{ opacity: 1, y: 0, filter: "blur(0px)", transitionEnd: { filter: "none" } }}
                   transition={{ duration: 0.5, delay: 0.4 }}
                 >
                   <span className="text-secondary">FULL-STACK</span>
@@ -185,16 +166,16 @@ export default function HeroSection() {
               <div className="flex flex-wrap md:flex-nowrap justify-center items-center gap-x-4 gap-y-2 -mt-4">
                 <MotionDiv
                   initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
-                  animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                  animate={{ opacity: 1, y: 0, filter: "blur(0px)", transitionEnd: { filter: "none" } }}
                   transition={{ duration: 0.5, delay: 0.5 }}
                 >
                   <span className="text-foreground/90">WEB/MOBILE</span>
                 </MotionDiv>
                 <MotionDiv
                     initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
-                    animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                    animate={{ opacity: 1, y: 0, filter: "blur(0px)", transitionEnd: { filter: "none" } }}
                     transition={{ duration: 0.5, delay: 0.5 }}
-                    className="flex-shrink-0 self-center flex text-base leading-none tracking-normal"
+                    className="relative z-10 flex-shrink-0 self-center flex text-base leading-none tracking-normal"
                 >
                     {/* flex (not inline) so the pill centers on the word instead of sitting on the headline's baseline */}
                     <Link href="/contact" passHref className="flex">
@@ -214,22 +195,25 @@ export default function HeroSection() {
                             </span>
                         </MotionButton>
                     </Link>
+                    <PointingCursor color="#ec4899" travel={35} duration={5.2} className="hidden md:block" />
                 </MotionDiv>
               </div>
 
               <div className="flex justify-center items-end gap-4">
                 <MotionDiv
                   initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
-                  animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                  animate={{ opacity: 1, y: 0, filter: "blur(0px)", transitionEnd: { filter: "none" } }}
                   transition={{ duration: 0.6, delay: 0.6 }}
-                  className="text-xs sm:text-xs text-white/70 pb-2 text-left hidden md:block tracking-wide leading-relaxed"
+                  className="relative z-10 text-xs sm:text-xs text-white/70 pb-2 text-left hidden md:block tracking-wide leading-relaxed"
                 >
                   // React · Next.js <br />
                   // React Native
+                  {/* Mirrored so it points up-right; -ml-8 keeps its tip (now on the right edge) centered */}
+                  <PointingCursor color="#a855f7" travel={30} duration={5.6} mirrored className="-mt-1 -ml-8" />
                 </MotionDiv>
                 <MotionDiv
                   initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
-                  animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                  animate={{ opacity: 1, y: 0, filter: "blur(0px)", transitionEnd: { filter: "none" } }}
                   transition={{ duration: 0.6, delay: 0.7 }}
                 >
                   <span className="text-accent">DEVELOPER.</span>
@@ -241,7 +225,7 @@ export default function HeroSection() {
           <MotionDiv
             className="mt-2 md:mt-4 max-w-xl mx-auto text-xl md:text-[length:clamp(1.125rem,2.6svh,1.5rem)] text-white/70 leading-relaxed"
             initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
-            animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+            animate={{ opacity: 1, y: 0, filter: "blur(0px)", transitionEnd: { filter: "none" } }}
             transition={{ duration: 0.5, delay: 0.7 }}
           >
             I build web and mobile apps with a focus on{" "}

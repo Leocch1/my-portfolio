@@ -63,7 +63,7 @@ export default function HelloSplash({ onFinish }: { onFinish: () => void }) {
       <div className="relative flex h-full w-full flex-col items-center justify-center px-6">
         <motion.div
           initial={{ opacity: 0, scale: 0.9, filter: textBlur }}
-          animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
+          animate={{ opacity: 1, scale: 1, filter: "blur(0px)", transitionEnd: { filter: "none" } }}
           transition={{ duration: 0.8, ease: [0.32, 0.72, 0, 1] }}
           className="flex flex-col items-center gap-8"
         >

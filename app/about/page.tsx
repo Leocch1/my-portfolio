@@ -115,7 +115,7 @@ export default function AboutPage() {
           <div>
             <MotionDiv
               initial={{ opacity: 0, y: -20, filter: "blur(10px)" }}
-              animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+              animate={{ opacity: 1, y: 0, filter: "blur(0px)", transitionEnd: { filter: "none" } }}
               transition={{ duration: 0.5 }}
             >
               <h1 className="text-5xl md:text-7xl font-bold tracking-tighter">
@@ -129,7 +129,7 @@ export default function AboutPage() {
             <MotionDiv
               className="mt-12 max-w-3xl"
               initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
-              animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+              animate={{ opacity: 1, y: 0, filter: "blur(0px)", transitionEnd: { filter: "none" } }}
               transition={{ duration: 0.5, delay: 0.2 }}
             >
               <hr className="mb-8" style={{ borderColor: "rgba(255, 255, 255, 0.1)" }} />
@@ -142,7 +142,7 @@ export default function AboutPage() {
           <MotionDiv
             className="relative w-[600px] h-[700px] rounded-[40px] overflow-hidden hidden lg:block ring-1 ring-white/15 shadow-[0_30px_80px_rgba(0,0,0,0.5)]"
             initial={{ opacity: 0, scale: 0.9, x: 50, filter: "blur(16px)" }}
-            animate={{ opacity: 1, scale: 1, x: 0, filter: "blur(0px)" }}
+            animate={{ opacity: 1, scale: 1, x: 0, filter: "blur(0px)", transitionEnd: { filter: "none" } }}
             transition={{ duration: 0.5, delay: 0.4 }}
           >
             <Image
@@ -172,7 +172,7 @@ export default function AboutPage() {
                     key={service.number}
                     className="relative"
                     initial={{ opacity: 0, y: 50, filter: "blur(10px)" }}
-                    whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                    whileInView={{ opacity: 1, y: 0, filter: "blur(0px)", transitionEnd: { filter: "none" } }}
                     viewport={{ once: true, amount: 0.3 }}
                     transition={{ duration: 0.5, delay: index * 0.1 }}
                 >
@@ -206,7 +206,7 @@ export default function AboutPage() {
                         key={index}
                         className="glass glass-interactive rounded-3xl p-4 flex flex-col items-center text-center group"
                         initial={{ opacity: 0, y: 50, filter: "blur(10px)" }}
-                        whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                        whileInView={{ opacity: 1, y: 0, filter: "blur(0px)", transitionEnd: { filter: "none" } }}
                         viewport={{ once: true, amount: 0.2 }}
                         transition={{ duration: 0.5, delay: index * 0.1 }}
                     >

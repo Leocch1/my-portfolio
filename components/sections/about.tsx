@@ -130,7 +130,7 @@ export default function AboutSection() {
 							<MotionDiv
 								key={service.title}
 								initial={{ opacity: 0, y: 50, filter: "blur(10px)" }}
-								whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+								whileInView={{ opacity: 1, y: 0, filter: "blur(0px)", transitionEnd: { filter: "none" } }}
 								viewport={{ once: true, amount: 0.2 }}
 								transition={{ duration: 0.5, delay: 0.1 * index }}
 							>

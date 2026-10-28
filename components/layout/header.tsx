@@ -60,7 +60,7 @@ export default function Header() {
             return (
               <MotionDiv
                 key={link.href}
-                variants={{ hidden: { opacity: 0, y: -20, filter: "blur(10px)" }, visible: { opacity: 1, y: 0, filter: "blur(0px)" } }}
+                variants={{ hidden: { opacity: 0, y: -20, filter: "blur(10px)" }, visible: { opacity: 1, y: 0, filter: "blur(0px)", transitionEnd: { filter: "none" } } }}
                 className="relative"
               >
                 {isActive && (

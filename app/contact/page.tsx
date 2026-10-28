@@ -86,7 +86,7 @@ export default function ContactPage() {
           
           <MotionDiv
             initial={{ opacity: 0, x: -50, filter: "blur(10px)" }}
-            animate={{ opacity: 1, x: 0, filter: "blur(0px)" }}
+            animate={{ opacity: 1, x: 0, filter: "blur(0px)", transitionEnd: { filter: "none" } }}
             transition={{ duration: 0.5, delay: 0.2 }}
             className="relative"
           >
@@ -128,7 +128,7 @@ export default function ContactPage() {
           
           <MotionDiv
             initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
-            animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+            animate={{ opacity: 1, y: 0, filter: "blur(0px)", transitionEnd: { filter: "none" } }}
             transition={{ duration: 0.5 }}
           >
             <div className="mb-16">
