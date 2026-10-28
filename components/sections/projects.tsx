@@ -33,6 +33,16 @@ const projectsData = [
         hint: 'mobile app screens'
 	},
 	{
+		title: 'Project Northstar',
+		year: '2026',
+		category: 'Web Development',
+		tech: 'Next.js, React',
+		description: 'Onboard training platform that helps maritime schools manage and mentor their cadets at sea.',
+		link: 'https://www.theprojectnorthstar.com/',
+		image: '/northstar.png',
+        hint: 'maritime training platform'
+	},
+	{
 		title: 'Tote&Tale',
 		year: '2025',
 		category: 'Full-Stack Development',

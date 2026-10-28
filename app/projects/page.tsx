@@ -42,6 +42,20 @@ const detailedProjects = [
     appStoreLink: 'https://apps.apple.com/ph/app/alagaco/id6787851037',
   },
   {
+    id: 'northstar',
+    title: 'Project Northstar',
+    tech: 'Next.js, React',
+    year: '2026',
+    description: [
+      'Built the website for Project Northstar, an onboard training platform that helps maritime schools manage and mentor their cadets through every stage of training at sea.',
+      'Developed the site with Next.js and React, presenting modules such as the e-Daily Journal, OTG task tracking, health monitoring, technical session booking, document validation, and fleet-wide visibility.',
+      'Created a responsive layout with a portal login for schools and cadets, plus clear calls to action for booking a demo and starting a free trial.',
+    ],
+    image: '/northstar.png',
+    hint: 'maritime onboard training platform website',
+    liveLink: 'https://www.theprojectnorthstar.com/',
+  },
+  {
     id: 'totentale',
     title: 'Tote&Tale',
     tech: 'Next.js, Typescript, Sanity, Clerk, Stripe',
