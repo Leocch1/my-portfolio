@@ -36,9 +36,9 @@ export default function HeroSection() {
     };
 
   return (
-    <section className="flex flex-grow items-center justify-center text-foreground p-4 pb-6 overflow-hidden">
+    <section className="flex flex-grow items-center justify-center text-foreground p-4 pb-6 md:py-4 overflow-hidden">
       <div className="w-full max-w-6xl mx-auto">
-        <div className="relative text-center pt-24 min-h-[80vh]">
+        <div className="relative text-center pt-24 min-h-[80vh] md:pt-0 md:min-h-0">
           {/* Cursors */}
           <MotionDiv
             className="absolute z-30 h-6 w-6 md:h-8 md:w-8"
@@ -123,7 +123,8 @@ export default function HeroSection() {
           </MotionDiv>
 
           <div className="relative w-full">
-            <h1 className="font-extrabold tracking-tight text-5xl sm:text-6xl md:text-8xl leading-tight md:leading-[1.15] z-10">
+            {/* On desktop the headline scales with screen height so the social bar below stays on the first screen */}
+            <h1 className="font-extrabold tracking-tight text-5xl sm:text-6xl md:text-[length:clamp(3rem,calc((100svh_-_24rem)/4.6),6rem)] leading-tight md:leading-[1.15] z-10">
               
               {/* Mobile-only Comments Wrapper */}
               <div className="flex md:hidden justify-center items-center gap-2">
@@ -238,7 +239,7 @@ export default function HeroSection() {
           </div>
 
           <MotionDiv
-            className="mt-2 md:mt-4 max-w-xl mx-auto text-xl md:text-2xl text-white/70 leading-relaxed"
+            className="mt-2 md:mt-4 max-w-xl mx-auto text-xl md:text-[length:clamp(1.125rem,2.6svh,1.5rem)] text-white/70 leading-relaxed"
             initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
             animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
             transition={{ duration: 0.5, delay: 0.7 }}

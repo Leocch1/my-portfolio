@@ -7,6 +7,7 @@ import HeroSection from '@/components/sections/hero';
 import AboutSection from '@/components/sections/about';
 import ProjectsSection from '@/components/sections/projects';
 import TechStackSection from '@/components/sections/tech-stack';
+import SocialBar from '@/components/sections/social-bar';
 import HelloSplash from '@/components/HelloSplash';
 
 export default function Home() {
@@ -20,7 +21,11 @@ export default function Home() {
         <div className="flex flex-col min-h-screen">
           <Header />
           <main className="flex-grow">
-            <HeroSection />
+            {/* First screen: on desktop the hero + social bar fill the viewport below the header (h-20) */}
+            <div className="flex flex-col md:min-h-[calc(100svh-5rem)]">
+              <HeroSection />
+              <SocialBar />
+            </div>
             <AboutSection />
             <ProjectsSection />
             <TechStackSection />
