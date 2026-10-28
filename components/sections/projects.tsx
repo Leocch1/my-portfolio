@@ -82,36 +82,6 @@ const projectsData = [
 		image: '/cvsu.png',
         hint: 'enrollment system'
 	},
-  {
-		title: 'Daily Sweets',
-		year: '2024',
-		category: 'Full-Stack Development',
-		tech: 'React, JavaScript XML, Tailwind CSS, Django',
-    description: 'An online store for selling sweets and pastries.',
-		link: 'https://github.com/Leocch1/daily-sweets',
-		image: '/dailysweets.jpg',
-        hint: 'online store sweets'
-	},
-	{
-		title: 'Leocchi Portfolio',
-		year: '2023',
-		category: 'Frontend Development',
-		tech: 'Next.js, JavaScript XML, Tailwind CSS, Shadcn UI, Framer Motion',
-    description: 'My personal portfolio showcasing my skills and projects.',
-		link: 'https://leo-jimenez.vercel.app/',
-		image: '/portfolio.png',
-        hint: 'portfolio website'
-	},
-	{
-		title: 'Student Checklist',
-		year: '2023',
-		category: 'Web Development',
-		tech: 'PHP, MySQL',
-    description: 'A simple checklist application for students to manage their subjects and grades',
-		link: 'https://github.com/Leolouise26/MyChecklist',
-		image: '/checklist.jpg',
-        hint: 'checklist application'
-	},
 ];
 
 const colorStyles = [

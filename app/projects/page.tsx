@@ -111,46 +111,6 @@ const detailedProjects = [
     hint: 'enrollment system for Cavite State University',
     liveLink: 'https://github.com/Leocch1/enrollment-system',
   },
-  {
-    id: 'daily-sweets',
-    title: 'Daily Sweets',
-    tech: 'React, JavaScript XML, Tailwind CSS, Django',
-    year: '2024',
-    description: [
-      'Developed Daily Sweets, an online store for selling sweets and pastries, using React for the frontend and Django for the backend.',
-      'Implemented a responsive design with Tailwind CSS, ensuring a visually appealing and user-friendly interface across devices.',
-      'Integrated features such as product listings, shopping cart functionality, and secure payment processing to enhance user experience.',
-    ],
-    image: '/dailysweets.jpg',
-    hint: 'online store for sweets and pastries',
-    liveLink: 'https://github.com/Leocch1/daily-sweets',
-  },
-  {
-    id: 'leocchi-portfolio',
-    title: 'Leocchi Portfolio',
-    tech: 'Next.js, JavaScript XML, Tailwind CSS, Shadcn UI, Framer Motion',
-    year: '2024',
-    description: [
-      'Created a personal portfolio website to showcase my skills and projects, utilizing Next.js for server-side rendering and static site generation.',
-      'Designed a modern and responsive layout with Tailwind CSS and Shadcn UI components, ensuring a visually appealing user experience.',
-      'Incorporated Framer Motion for smooth animations and transitions, enhancing the overall interactivity of the portfolio.',
-    ],
-    image: '/portfolio.png',
-    hint: 'personal portfolio website',
-    liveLink: 'https://leo-jimenez.vercel.app/',
-  },
-  {
-    id: 'student-checklist',
-    title: 'Student Checklist',
-    tech: 'PHP, MySQL',
-    year: '2023',
-    description: [
-      'Developed a simple checklist application for students to manage their subjects and grades, using PHP for backend development and MySQL for database management.',
-    ],
-    image: '/checklist.jpg',
-    hint: 'student management system',
-    liveLink: 'https://github.com/Leolouise26/MyChecklist',
-  }
 ];
 
 export default function ProjectsPage() {
