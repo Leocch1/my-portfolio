@@ -42,6 +42,20 @@ const detailedProjects = [
     appStoreLink: 'https://apps.apple.com/ph/app/alagaco/id6787851037',
   },
   {
+    id: 'sagwan',
+    title: 'Sagwan',
+    tech: 'Next.js, React, Sanity, Resend, Xendit',
+    year: '2026',
+    description: [
+      "Built Sagwan, the maritime community app that connects seafarers at sea with shipyards, owner's representatives, manning agencies, vendors, and maritime professionals on shore.",
+      'Developed it with Next.js and React, using Sanity for content management, Resend for transactional emails, and Xendit for payment processing.',
+      'Built features including a live community map of registered members, role-based portals, a social feed with announcements, reactions, and comments, and account sign-up and sign-in.',
+    ],
+    image: '/sagwan.png',
+    hint: 'maritime community app',
+    liveLink: 'https://sagwan.app/',
+  },
+  {
     id: 'northstar',
     title: 'Project Northstar',
     tech: 'Next.js, React',

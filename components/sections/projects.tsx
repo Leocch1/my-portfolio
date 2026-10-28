@@ -33,6 +33,16 @@ const projectsData = [
         hint: 'mobile app screens'
 	},
 	{
+		title: 'Sagwan',
+		year: '2026',
+		category: 'Full-Stack Development',
+		tech: 'Next.js, React, Sanity, Resend, Xendit',
+		description: 'Maritime community app connecting seafarers with shipyards, manning agencies, vendors and professionals on shore.',
+		link: 'https://sagwan.app/',
+		image: '/sagwan.png',
+        hint: 'maritime community app'
+	},
+	{
 		title: 'Project Northstar',
 		year: '2026',
 		category: 'Web Development',
