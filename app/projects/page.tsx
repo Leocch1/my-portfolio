@@ -70,6 +70,20 @@ const detailedProjects = [
     liveLink: 'https://myglobeconnect.com/en',
   },
   {
+    id: 'pixeltech',
+    title: 'PixelTech',
+    tech: 'Next.js, React',
+    year: '2026',
+    description: [
+      'Built the website for PixelTech, a creative lab offering business IT solutions such as responsive websites, mobile apps, and design and branding.',
+      'Developed the site with Next.js and React, with sections for the company story, services, case studies, and a contact page.',
+      'Created a responsive layout with a hero slider, a side navigation panel on desktop, and clear calls to action for starting a project.',
+    ],
+    image: '/pixeltech.png',
+    hint: 'business it solutions website',
+    liveLink: 'https://pixeltechph.com/',
+  },
+  {
     id: 'totentale',
     title: 'Tote&Tale',
     tech: 'Next.js, Typescript, Sanity, Clerk, Stripe',

@@ -53,6 +53,16 @@ const projectsData = [
         hint: 'global hiring website'
 	},
 	{
+		title: 'PixelTech',
+		year: '2026',
+		category: 'Web Development',
+		tech: 'Next.js, React',
+		description: 'Website for a creative lab offering business IT solutions, from web and mobile apps to design and branding.',
+		link: 'https://pixeltechph.com/',
+		image: '/pixeltech.png',
+        hint: 'business it solutions website'
+	},
+	{
 		title: 'Tote&Tale',
 		year: '2025',
 		category: 'Full-Stack Development',
