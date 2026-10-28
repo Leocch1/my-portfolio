@@ -134,7 +134,7 @@ export default function AboutPage() {
             >
               <hr className="mb-8" style={{ borderColor: "rgba(255, 255, 255, 0.1)" }} />
               <p className="text-xl md:text-2xl text-muted-foreground leading-snug">
-                As a Computer Science student aspiring to be a Software Engineer, I excel in building scalable applications, enhancing user experiences, and streamlining development processes.
+                As a Computer Science graduate and full-stack developer, I excel in building scalable applications, enhancing user experiences, and streamlining development processes.
               </p>
             </MotionDiv>
           </div>

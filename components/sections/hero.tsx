@@ -188,7 +188,7 @@ export default function HeroSection() {
                   animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                   transition={{ duration: 0.5, delay: 0.5 }}
                 >
-                  <span className="text-foreground/90">STUDENT</span>
+                  <span className="text-foreground/90">DESIGNER</span>
                 </MotionDiv>
                 <MotionDiv
                     initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
