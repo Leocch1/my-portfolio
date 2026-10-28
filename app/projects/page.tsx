@@ -56,6 +56,20 @@ const detailedProjects = [
     liveLink: 'https://www.theprojectnorthstar.com/',
   },
   {
+    id: 'my-global-connection',
+    title: 'My Global Connection',
+    tech: 'Next.js, React',
+    year: '2026',
+    description: [
+      'Built the website for My Global Connection, an Employer of Record (EOR) and recruitment service that helps companies hire and manage talent in the Philippines.',
+      'Developed the site with Next.js and React, including service pages, a "Why the Philippines" section, PH compliance and labor law guides, a blog, careers, and FAQs.',
+      'Implemented English and German versions of the site, a responsive layout, and calls to action for requesting a quote and logging in to client accounts.',
+    ],
+    image: '/myglobalconnection.png',
+    hint: 'global hiring and employer of record website',
+    liveLink: 'https://myglobeconnect.com/en',
+  },
+  {
     id: 'totentale',
     title: 'Tote&Tale',
     tech: 'Next.js, Typescript, Sanity, Clerk, Stripe',

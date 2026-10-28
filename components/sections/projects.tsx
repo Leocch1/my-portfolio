@@ -43,6 +43,16 @@ const projectsData = [
         hint: 'maritime training platform'
 	},
 	{
+		title: 'My Global Connection',
+		year: '2026',
+		category: 'Web Development',
+		tech: 'Next.js, React',
+		description: 'Employer of Record and recruitment website for companies hiring talent in the Philippines.',
+		link: 'https://myglobeconnect.com/en',
+		image: '/myglobalconnection.png',
+        hint: 'global hiring website'
+	},
+	{
 		title: 'Tote&Tale',
 		year: '2025',
 		category: 'Full-Stack Development',

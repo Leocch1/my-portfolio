@@ -1,0 +1,144 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<!-- Display image for My Global Connection (layered layout); render with headless Chrome at 1600x900 to public/myglobalconnection.png -->
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1600px; height: 900px; overflow: hidden; }
+  body {
+    position: relative;
+    font-family: "Segoe UI", system-ui, sans-serif;
+    background: linear-gradient(150deg, #0e5f6d 0%, #13808f 40%, #00b2cc 100%);
+  }
+
+  /* Big diagonal panel, echoing the angled teal block on the site */
+  .slant {
+    position: absolute; top: 0; bottom: 0; left: -120px; width: 760px;
+    background: linear-gradient(160deg, rgba(0, 200, 225, 0.55), rgba(0, 184, 212, 0.15));
+    transform: skewX(-12deg);
+  }
+  .grid {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+    background-size: 48px 48px;
+    mask-image: radial-gradient(ellipse at center, black 25%, transparent 80%);
+  }
+  .blob { position: absolute; border-radius: 50%; filter: blur(100px); }
+  .b1 { width: 620px; height: 620px; right: -140px; top: -220px; background: rgba(120, 235, 250, 0.45); }
+  .b2 { width: 560px; height: 560px; left: 380px; bottom: -320px; background: rgba(255, 255, 255, 0.25); }
+
+  /* Dotted "connection" route linking the devices, like a flight path */
+  .route { position: absolute; inset: 0; }
+
+  .window {
+    position: absolute; border-radius: 16px; overflow: hidden; background: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+  }
+  .bar {
+    height: 34px; display: flex; align-items: center; gap: 7px; padding: 0 14px;
+    background: linear-gradient(#f6fbfc, #ecf5f7); border-bottom: 1px solid rgba(12, 62, 72, 0.08);
+  }
+  .dot { width: 11px; height: 11px; border-radius: 50%; }
+  .dot.r { background: #ff5f57; } .dot.y { background: #febc2e; } .dot.g { background: #28c840; }
+  .url {
+    margin-left: 16px; flex: 0 0 300px; height: 22px; border-radius: 11px; background: #fff;
+    border: 1px solid rgba(12, 62, 72, 0.1); display: flex; align-items: center; justify-content: center; gap: 6px;
+    font-size: 11.5px; color: #3f6470;
+  }
+  .url svg { width: 10px; height: 10px; }
+
+  /* Back window: just the "Effortless Hiring" section, nav cropped off */
+  .back {
+    left: 560px; top: 70px; width: 820px;
+    box-shadow: 0 40px 80px rgba(3, 40, 48, 0.35);
+  }
+  .back .crop { height: 330px; overflow: hidden; }
+  .back .crop img { display: block; width: 100%; margin-top: -103px; }
+
+  /* Front window: the hero */
+  .front {
+    left: 210px; top: 330px; width: 800px;
+    box-shadow: 0 50px 100px rgba(3, 40, 48, 0.45), 0 16px 32px rgba(3, 40, 48, 0.25);
+    z-index: 2;
+  }
+  .front img { display: block; width: 100%; }
+
+  /* iPhone */
+  .phone {
+    position: absolute; left: 1110px; top: 280px; width: 250px; padding: 11px; z-index: 3;
+    border-radius: 50px; background: #0d1117;
+    box-shadow:
+      0 50px 90px rgba(3, 40, 48, 0.5), 0 16px 30px rgba(3, 40, 48, 0.3),
+      inset 0 0 0 2px #2a313b, inset 0 0 0 5px #0d1117;
+  }
+  .phone::before, .phone::after { content: ''; position: absolute; width: 4px; border-radius: 2px; background: #1f2630; }
+  .phone::before { left: -3px; top: 130px; height: 54px; }
+  .phone::after { right: -3px; top: 170px; height: 80px; }
+  .screen { position: relative; border-radius: 40px; overflow: hidden; background: #fff; }
+  .island {
+    position: absolute; top: 9px; left: 50%; transform: translateX(-50%);
+    width: 70px; height: 22px; border-radius: 11px; background: #000; z-index: 2;
+  }
+  .status {
+    height: 40px; display: flex; align-items: center; justify-content: space-between;
+    padding: 4px 18px 0 26px; font-size: 13px; font-weight: 600; color: #fff; background: #00b8d4;
+  }
+  .status .icons { display: flex; gap: 4px; align-items: center; }
+  .status svg { height: 9px; width: auto; }
+  .screen img { display: block; width: 100%; }
+
+</style>
+</head>
+<body>
+  <div class="slant"></div>
+  <div class="blob b1"></div>
+  <div class="blob b2"></div>
+  <div class="grid"></div>
+
+  <svg class="route" viewBox="0 0 1600 900" fill="none">
+    <path d="M120 820 C 420 700, 360 160, 760 120 S 1380 260, 1500 90" stroke="rgba(255,255,255,0.35)" stroke-width="2" stroke-dasharray="2 10" stroke-linecap="round"/>
+    <circle cx="1500" cy="90" r="6" fill="rgba(255,255,255,0.7)"/>
+    <circle cx="120" cy="820" r="6" fill="rgba(255,255,255,0.7)"/>
+  </svg>
+
+  <div class="window back">
+    <div class="bar">
+      <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+      <div class="url">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
+        myglobeconnect.com/en
+      </div>
+    </div>
+    <div class="crop"><img src="hiring.png" alt="" /></div>
+  </div>
+
+  <div class="window front">
+    <div class="bar">
+      <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+      <div class="url">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
+        myglobeconnect.com/en
+      </div>
+    </div>
+    <img src="desktop.png" alt="" />
+  </div>
+
+  <div class="phone">
+    <div class="screen">
+      <div class="island"></div>
+      <div class="status">
+        <span>9:41</span>
+        <span class="icons">
+          <svg viewBox="0 0 18 11" fill="#fff"><rect x="0" y="7" width="3" height="4" rx="1"/><rect x="5" y="5" width="3" height="6" rx="1"/><rect x="10" y="2.5" width="3" height="8.5" rx="1"/><rect x="15" y="0" width="3" height="11" rx="1"/></svg>
+          <svg viewBox="0 0 16 11" fill="#fff"><path d="M8 2.2c2.3 0 4.4.9 6 2.4l1.2-1.3A10.4 10.4 0 0 0 8 .4 10.4 10.4 0 0 0 .8 3.3L2 4.6a8.6 8.6 0 0 1 6-2.4Zm0 3.6c1.3 0 2.5.5 3.4 1.3l1.2-1.3A6.6 6.6 0 0 0 8 4a6.6 6.6 0 0 0-4.6 1.8l1.2 1.3c.9-.8 2.1-1.3 3.4-1.3Zm0 3.6c.4 0 .8.2 1.1.4L8 11 6.9 9.8c.3-.2.7-.4 1.1-.4Z"/></svg>
+          <svg viewBox="0 0 27 12" fill="none"><rect x="0.5" y="0.5" width="22" height="11" rx="3" stroke="#fff" opacity="0.6"/><rect x="2" y="2" width="19" height="8" rx="1.8" fill="#fff"/><path d="M24.5 4v4c.8-.3 1.5-1.1 1.5-2s-.7-1.7-1.5-2Z" fill="#fff" opacity="0.6"/></svg>
+        </span>
+      </div>
+      <img src="mobile.png" alt="" />
+    </div>
+  </div>
+</body>
+</html>
