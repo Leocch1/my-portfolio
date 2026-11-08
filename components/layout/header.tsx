@@ -36,6 +36,21 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-40 w-full">
+      {/* Mobile menu backdrop — dims the page and closes the menu on tap. Rendered first so the bar paints above it. */}
+      <AnimatePresence>
+        {isMenuOpen && (
+          <motion.div
+            className="md:hidden fixed inset-0 bg-black/50"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.25 }}
+            onClick={() => setIsMenuOpen(false)}
+            aria-hidden="true"
+          />
+        )}
+      </AnimatePresence>
+
       <div className="relative flex h-20 w-full items-center px-4 sm:px-6 lg:px-8 pt-2">
         {/* Brand Button */}
         <div className="flex-shrink-0">
@@ -116,14 +131,15 @@ export default function Header() {
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div
-            className="md:hidden px-4"
-            initial={{ opacity: 0, y: -12, scale: 0.97, filter: 'blur(10px)' }}
-            animate={{ opacity: 1, y: 0, scale: 1, filter: 'blur(0px)' }}
-            exit={{ opacity: 0, y: -12, scale: 0.97, filter: 'blur(10px)' }}
+            className="md:hidden absolute inset-x-0 top-full px-4 pt-2"
+            // No `filter` here: a filter on an ancestor stops the sheet's backdrop-filter from blurring the page.
+            initial={{ opacity: 0, y: -12, scale: 0.97 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: -12, scale: 0.97 }}
             transition={{ duration: 0.3, ease: [0.32, 0.72, 0, 1] }}
             style={{ transformOrigin: 'top right' }}
           >
-            <div className="glass rounded-[28px] p-2 space-y-1">
+            <div className="glass bg-[hsl(var(--background)/0.85)] rounded-[28px] p-2 space-y-1">
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
