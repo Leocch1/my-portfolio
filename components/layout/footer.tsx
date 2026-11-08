@@ -47,9 +47,9 @@ export default function Footer() {
     >
       <div className="w-full px-0 sm:px-0 lg:px-0">
         {/* Rectangle container with border */}
-        <div className="glass rounded-[32px] mx-4 sm:mx-8 lg:mx-16 p-6 md:p-8 mb-0 relative overflow-hidden" style={{ minHeight: '340px' }}>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <div>
+        <div className="glass rounded-[32px] mx-4 sm:mx-8 lg:mx-16 p-6 pb-32 md:p-8 md:min-h-[340px] mb-0 relative overflow-hidden">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-8 md:gap-4">
+            <div className="col-span-2 md:col-span-1">
               <h3 className="text-base font-medium leading-tight">
                 Where <span className="text-primary font-semibold">clean code</span> & <span className="text-accent font-semibold">functionality</span> meet
               </h3>
@@ -73,7 +73,7 @@ export default function Footer() {
                 ))}
               </div>
             </div>
-            <div className="space-y-2">
+            <div className="col-span-2 md:col-span-1 space-y-2">
               <Link href="/contact" className="group block">
                 <div className="flex items-center justify-between py-1 border-b border-border/40 hover:border-primary/50 transition-colors">
                   <div>
@@ -99,7 +99,12 @@ export default function Footer() {
             </div>
           </div>
           {/* Big name at the very bottom, cut off the overflow */}
-          <div
+          {/* Trigger on the (untranslated) wrapper: the text itself starts offset below the clip
+              area, so on narrow screens too little of it is visible to trip the in-view threshold. */}
+          <MotionDiv
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
             className="absolute left-0 right-0 bottom-[-2vw] w-full flex justify-center items-end overflow-hidden pointer-events-none select-none"
             style={{
               height: '13vw',
@@ -110,9 +115,10 @@ export default function Footer() {
             }}
           >
             <MotionDiv
-              initial={{ opacity: 0, y: 50, filter: "blur(10px)" }}
-              whileInView={{ opacity: 1, y: 0, filter: "blur(0px)", transitionEnd: { filter: "none" } }}
-              viewport={{ once: true, amount: 0.2 }}
+              variants={{
+                hidden: { opacity: 0, y: 50, filter: "blur(10px)" },
+                visible: { opacity: 1, y: 0, filter: "blur(0px)", transitionEnd: { filter: "none" } },
+              }}
               transition={{ duration: 0.8 }}
               className="w-full text-center"
             >
@@ -130,7 +136,7 @@ export default function Footer() {
                 Leocchi
               </h1>
             </MotionDiv>
-          </div>
+          </MotionDiv>
         </div>
         {/* Footer bottom info */}
         <div className="mt-0 pt-4 text-xs text-muted-foreground mx-4 sm:mx-8 lg:mx-16">
